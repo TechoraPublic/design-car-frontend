@@ -17,7 +17,6 @@ const Home = () => {
       <ProductDesignSection />
       <WhyDesignCurve />
       <ClientTestimonials />
-      <Footer />
     </div>
   )
 }

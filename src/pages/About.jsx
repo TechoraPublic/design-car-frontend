@@ -61,7 +61,11 @@ const Reveal = ({
       className={`
         ${className}
         transform
-        ${visible ? "translate-x-0 translate-y-0 opacity-100" : `${transforms[direction]} opacity-0`}
+        ${
+          visible
+            ? "translate-x-0 translate-y-0 opacity-100"
+            : `${transforms[direction]} opacity-0`
+        }
         transition-all
         duration-1000
         ease-[cubic-bezier(0.22,1,0.36,1)]
@@ -409,9 +413,7 @@ const About = () => {
                     delay={750}
                     blue={false}
                   >
-                    <span
-                      className="animated-gradient"
-                    >
+                    <span className="animated-gradient">
                       .
                     </span>
                   </AnimatedWord>
@@ -808,24 +810,34 @@ const About = () => {
 
       <section className="py-28 px-6 md:px-12 lg:px-20">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
-          {/* VISUAL */}
+
+          {/* =================================================
+              CAR IMAGE
+          ================================================== */}
 
           <Reveal direction="right">
             <div className="relative group">
+
+              {/* OUTER GLOW */}
+
               <div
                 className="
                   absolute
-                  -inset-6
+                  -inset-8
+                  rounded-[2.5rem]
                   blur-3xl
                   opacity-0
-                  group-hover:opacity-20
-                  transition-opacity
-                  duration-700
+                  group-hover:opacity-30
+                  transition-all
+                  duration-1000
                 "
                 style={{
-                  backgroundColor: "#0166FF",
+                  background:
+                    "linear-gradient(135deg,#0166FF,#F05C36)",
                 }}
               />
+
+              {/* IMAGE CONTAINER */}
 
               <div
                 className="
@@ -833,148 +845,188 @@ const About = () => {
                   aspect-[4/3]
                   rounded-[2rem]
                   overflow-hidden
+                  bg-gray-100
                   transition-all
-                  duration-500
-                  group-hover:-translate-y-2
+                  duration-700
+                  group-hover:-translate-y-3
+                  group-hover:shadow-2xl
                 "
                 style={{
-                  background:
-                    "linear-gradient(135deg,#F5F8FC 0%,#FFFFFF 100%)",
                   border:
                     "1px solid rgba(1,102,255,0.12)",
                   boxShadow:
-                    "0 25px 70px rgba(17,24,39,0.06)",
+                    "0 25px 70px rgba(17,24,39,0.08)",
                 }}
               >
-                {/* GRID */}
 
-                <div
-                  className="absolute inset-0 opacity-[0.04]"
-                  style={{
-                    backgroundImage: `
-                      linear-gradient(#111827 1px, transparent 1px),
-                      linear-gradient(90deg,#111827 1px, transparent 1px)
-                    `,
-                    backgroundSize: "50px 50px",
-                  }}
+                {/* CAR IMAGE */}
+
+                <img
+                  src="/CAR.png"
+                  alt="Automotive Engineering"
+                  className="
+                    absolute
+                    inset-0
+                    w-full
+                    h-full
+                    object-cover
+                    transition-all
+                    duration-1000
+                    ease-out
+                    group-hover:scale-110
+                  "
+                  draggable="false"
                 />
 
-                {/* BLUE GRADIENT */}
+                {/* DARK OVERLAY */}
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-gradient-to-t
+                    from-black/50
+                    via-transparent
+                    to-transparent
+                    opacity-60
+                    group-hover:opacity-30
+                    transition-opacity
+                    duration-700
+                  "
+                />
+
+                {/* MOVING LIGHT */}
 
                 <div
                   className="
                     absolute
                     top-0
-                    left-0
-                    w-72
-                    h-72
-                    blur-[100px]
-                    pulse-glow
+                    -left-[60%]
+                    w-[45%]
+                    h-full
+                    skew-x-[-20deg]
+                    bg-gradient-to-r
+                    from-transparent
+                    via-white/35
+                    to-transparent
+                    group-hover:left-[120%]
+                    transition-all
+                    duration-[1200ms]
+                    ease-out
+                  "
+                />
+
+                {/* BLUE GLOW */}
+
+                <div
+                  className="
+                    absolute
+                    -bottom-20
+                    -left-20
+                    w-64
+                    h-64
+                    rounded-full
+                    blur-[90px]
+                    opacity-20
+                    group-hover:opacity-40
+                    transition-opacity
+                    duration-700
                   "
                   style={{
                     backgroundColor: "#0166FF",
-                    opacity: 0.1,
                   }}
                 />
 
-                {/* ORANGE GRADIENT */}
+                {/* ORANGE GLOW */}
 
                 <div
-                  className="absolute bottom-0 right-0 w-72 h-72 blur-[100px]"
+                  className="
+                    absolute
+                    -top-20
+                    -right-20
+                    w-60
+                    h-60
+                    rounded-full
+                    blur-[90px]
+                    opacity-10
+                    group-hover:opacity-30
+                    transition-opacity
+                    duration-700
+                  "
                   style={{
                     backgroundColor: "#F05C36",
-                    opacity: 0.08,
                   }}
                 />
 
-                {/* CENTER */}
 
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div
-                    className="
-                      relative
-                      w-56
-                      h-56
-                      rounded-full
-                      flex
-                      items-center
-                      justify-center
-                      transition-transform
-                      duration-700
-                      group-hover:scale-110
-                    "
-                    style={{
-                      border:
-                        "1px solid rgba(1,102,255,0.25)",
-                    }}
-                  >
-                    <div
-                      className="absolute inset-8 rounded-full"
-                      style={{
-                        border:
-                          "1px solid rgba(240,92,54,0.20)",
-                      }}
-                    />
+                {/* BORDER LIGHT */}
 
-                    <div
-                      className="
-                        absolute
-                        inset-16
-                        rounded-full
-                        blur-xl
-                        pulse-glow
-                      "
-                      style={{
-                        backgroundColor: "#0166FF",
-                        opacity: 0.1,
-                      }}
-                    />
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    rounded-[2rem]
+                    border
+                    border-white/0
+                    group-hover:border-white/30
+                    transition-all
+                    duration-700
+                    pointer-events-none
+                  "
+                />
 
-                    <span
-                      className="
-                        relative
-                        text-6xl
-                        font-bold
-                        transition-all
-                        duration-500
-                        group-hover:tracking-wider
-                      "
-                      style={{
-                        color: "#0166FF",
-                      }}
-                    >
-                      DC
-                    </span>
-                  </div>
-                </div>
-
-                {/* BOTTOM LABEL */}
-
-                <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
-                  <span className="text-xs tracking-[0.3em] text-gray-400">
-                    ENGINEERED FOR TOMORROW
-                  </span>
-
-                  <ArrowUpRight
-                    size={24}
-                    style={{
-                      color: "#F05C36",
-                    }}
-                    className="
-                      group-hover:translate-x-1
-                      group-hover:-translate-y-1
-                      transition-transform
-                    "
-                  />
-                </div>
               </div>
+
+              {/* ORANGE DOT */}
+
+              <div
+                className="
+                  absolute
+                  -right-3
+                  top-[35%]
+                  w-5
+                  h-5
+                  rounded-full
+                  animate-pulse
+                  z-10
+                "
+                style={{
+                  backgroundColor: "#F05C36",
+                  boxShadow:
+                    "0 0 30px rgba(240,92,54,0.55)",
+                }}
+              />
+
+              {/* BLUE DOT */}
+
+              <div
+                className="
+                  absolute
+                  -left-3
+                  bottom-[25%]
+                  w-3
+                  h-3
+                  rounded-full
+                  animate-pulse
+                  z-10
+                "
+                style={{
+                  backgroundColor: "#0166FF",
+                  boxShadow:
+                    "0 0 25px rgba(1,102,255,0.55)",
+                }}
+              />
+
             </div>
           </Reveal>
 
-          {/* CONTENT */}
+          {/* =================================================
+              CONTENT
+          ================================================== */}
 
           <Reveal direction="left" delay={150}>
             <div>
+
               <span
                 className="text-sm font-medium tracking-[0.2em]"
                 style={{
@@ -1023,7 +1075,7 @@ const About = () => {
                   "Engineering-focused design approach",
                   "Quality-driven development process",
                   "Client-focused collaboration",
-                ].map((item, index) => (
+                ].map((item) => (
                   <div
                     key={item}
                     className="
@@ -1054,8 +1106,10 @@ const About = () => {
                   </div>
                 ))}
               </div>
+
             </div>
           </Reveal>
+
         </div>
       </section>
 
@@ -1071,8 +1125,10 @@ const About = () => {
         }}
       >
         <div className="max-w-7xl mx-auto">
+
           <Reveal>
             <div className="max-w-2xl">
+
               <span
                 className="text-sm font-medium tracking-[0.2em]"
                 style={{
@@ -1084,9 +1140,7 @@ const About = () => {
 
               <h2 className="mt-5 text-4xl md:text-5xl font-semibold text-gray-900">
                 What drives
-                <span
-                  className="animated-gradient"
-                >
+                <span className="animated-gradient">
                   {" "}us.
                 </span>
               </h2>
@@ -1095,6 +1149,7 @@ const About = () => {
                 Our values shape how we think, design,
                 engineer, and collaborate with every client.
               </p>
+
             </div>
           </Reveal>
 
@@ -1137,6 +1192,7 @@ const About = () => {
                           : "0 10px 35px rgba(17,24,39,0.04)",
                     }}
                   >
+
                     {/* HOVER GLOW */}
 
                     <div
@@ -1162,6 +1218,7 @@ const About = () => {
                     />
 
                     <div className="relative">
+
                       {/* ICON */}
 
                       <div
@@ -1227,6 +1284,7 @@ const About = () => {
                               : "#F05C36",
                         }}
                       />
+
                     </div>
                   </div>
                 </Reveal>
@@ -1242,9 +1300,12 @@ const About = () => {
 
       <section className="py-28 px-6 md:px-12 lg:px-20">
         <div className="max-w-7xl mx-auto">
+
           <Reveal>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+
               <div>
+
                 <span
                   className="text-sm font-medium tracking-[0.2em]"
                   style={{
@@ -1260,6 +1321,7 @@ const About = () => {
                     that delivers.
                   </span>
                 </h2>
+
               </div>
 
               <p className="max-w-md text-gray-500 leading-relaxed">
@@ -1267,12 +1329,14 @@ const About = () => {
                 complex product challenges from concept
                 through development.
               </p>
+
             </div>
           </Reveal>
 
           {/* CARDS */}
 
           <div className="mt-16 grid lg:grid-cols-3 gap-6">
+
             {capabilities.map((item, index) => {
               const Icon = item.icon;
 
@@ -1299,7 +1363,9 @@ const About = () => {
                         "0 10px 35px rgba(17,24,39,0.04)",
                     }}
                   >
+
                     <div className="flex items-center justify-between">
+
                       <div
                         className="
                           w-14
@@ -1345,6 +1411,7 @@ const About = () => {
                               : "#0166FF",
                         }}
                       />
+
                     </div>
 
                     <h3
@@ -1383,10 +1450,12 @@ const About = () => {
                     >
                       0{index + 1} / EXPERTISE
                     </div>
+
                   </div>
                 </Reveal>
               );
             })}
+
           </div>
         </div>
       </section>
@@ -1397,6 +1466,7 @@ const About = () => {
 
       <section className="px-6 md:px-12 lg:px-20 pb-28">
         <Reveal direction="up">
+
           <div
             className="
               relative
@@ -1416,6 +1486,7 @@ const About = () => {
                 "1px solid rgba(1,102,255,0.15)",
             }}
           >
+
             {/* BLUE GLOW */}
 
             <div
@@ -1454,8 +1525,11 @@ const About = () => {
             />
 
             <div className="relative px-8 md:px-16 py-16 md:py-20 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
+
               <div>
+
                 <div className="flex items-center gap-2">
+
                   <Sparkles
                     size={16}
                     style={{
@@ -1471,6 +1545,7 @@ const About = () => {
                   >
                     HAVE AN IDEA?
                   </p>
+
                 </div>
 
                 <h2 className="mt-4 text-4xl md:text-5xl font-semibold max-w-2xl text-gray-900">
@@ -1484,6 +1559,7 @@ const About = () => {
                   Talk to our team about your product,
                   engineering, or development requirements.
                 </p>
+
               </div>
 
               <a
@@ -1521,10 +1597,13 @@ const About = () => {
                   "
                 />
               </a>
+
             </div>
           </div>
+
         </Reveal>
       </section>
+
     </main>
   );
 };

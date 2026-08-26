@@ -37,14 +37,13 @@ const Footer = () => {
       className="relative isolate overflow-hidden bg-[#07101D] text-[#FDFDFD]"
     >
       {/* =====================================================
-          CINEMATIC BACKGROUND
+          BACKGROUND IMAGE
       ====================================================== */}
 
-      <div className="absolute inset-0 -z-20 overflow-hidden">
-
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         <img
-          src="https://designcurvetech.com/wp-content/uploads/2025/02/logos.png"
-          alt="DesignCurve Technologies"
+          src="/footer_lamb.png"
+          alt="DesignCurve Engineering"
           className={`
             absolute
             inset-0
@@ -52,37 +51,75 @@ const Footer = () => {
             w-full
             object-cover
             object-center
-
             transition-transform
             duration-[8000ms]
             ease-out
-
-            ${visible ? "scale-[1.04]" : "scale-[1.12]"}
+            ${
+              visible
+                ? "scale-100"
+                : "scale-[1.08]"
+            }
           `}
         />
 
-        {/* Main cinematic dark layer */}
+        {/* Main dark overlay */}
+        <div className="absolute inset-0 bg-[#07101D]/45" />
 
-        <div className="absolute inset-0 bg-[#07101D]/[0.68]" />
+        {/* Left cinematic gradient */}
+        <div
+          className="
+            absolute
+            inset-0
+            bg-gradient-to-r
+            from-[#07101D]/80
+            via-[#07101D]/35
+            to-transparent
+          "
+        />
 
-        {/* Left blue depth */}
+        {/* Bottom gradient */}
+        <div
+          className="
+            absolute
+            inset-x-0
+            bottom-0
+            h-[55%]
+            bg-gradient-to-t
+            from-[#07101D]
+            via-[#07101D]/70
+            to-transparent
+          "
+        />
 
+        {/* Top gradient */}
+        <div
+          className="
+            absolute
+            inset-x-0
+            top-0
+            h-[25%]
+            bg-gradient-to-b
+            from-[#07101D]/70
+            to-transparent
+          "
+        />
+
+        {/* Blue cinematic glow */}
         <div
           className="
             absolute
             -left-[250px]
-            top-[10%]
+            top-[5%]
             h-[650px]
             w-[650px]
             rounded-full
-            bg-[#0166FF]/[0.15]
+            bg-[#0166FF]/[0.10]
             blur-[170px]
             animate-[pulse_7s_ease-in-out_infinite]
           "
         />
 
-        {/* Right orange depth */}
-
+        {/* Orange cinematic glow */}
         <div
           className="
             absolute
@@ -91,14 +128,13 @@ const Footer = () => {
             h-[600px]
             w-[600px]
             rounded-full
-            bg-[#F05C36]/[0.12]
+            bg-[#F05C36]/[0.08]
             blur-[170px]
             animate-[pulse_9s_ease-in-out_infinite]
           "
         />
 
         {/* Horizontal cinematic light */}
-
         <div
           className="
             absolute
@@ -108,36 +144,7 @@ const Footer = () => {
             w-full
             bg-gradient-to-r
             from-transparent
-            via-[#0166FF]/25
-            to-transparent
-          "
-        />
-
-        {/* Bottom darkness */}
-
-        <div
-          className="
-            absolute
-            inset-x-0
-            bottom-0
-            h-[45%]
-            bg-gradient-to-t
-            from-[#07101D]
-            via-[#07101D]/80
-            to-transparent
-          "
-        />
-
-        {/* Top darkness */}
-
-        <div
-          className="
-            absolute
-            inset-x-0
-            top-0
-            h-[25%]
-            bg-gradient-to-b
-            from-[#07101D]/80
+            via-[#0166FF]/30
             to-transparent
           "
         />
@@ -152,7 +159,7 @@ const Footer = () => {
           pointer-events-none
           absolute
           inset-0
-          -z-10
+          z-[1]
           opacity-[0.035]
         "
         style={{
@@ -174,6 +181,7 @@ const Footer = () => {
           absolute
           right-[8%]
           top-[12%]
+          z-[2]
           hidden
           h-[260px]
           w-[260px]
@@ -200,17 +208,15 @@ const Footer = () => {
       </div>
 
       {/* =====================================================
-          MAIN
+          MAIN CONTENT
       ====================================================== */}
 
-      <div className="relative z-10 mx-auto max-w-[1550px]">
-
+      <div className="relative z-20 mx-auto max-w-[1550px]">
         {/* =================================================
             HERO CONTACT
         ================================================= */}
 
         <div className="px-5 pb-20 pt-24 sm:px-8 lg:px-12 lg:pb-28 lg:pt-36">
-
           {/* Label */}
 
           <div
@@ -220,7 +226,11 @@ const Footer = () => {
               gap-4
               transition-all
               duration-[1400ms]
-              ${visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}
+              ${
+                visible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0"
+              }
             `}
           >
             <span className="h-px w-14 bg-[#0166FF]" />
@@ -240,7 +250,11 @@ const Footer = () => {
               transition-all
               delay-150
               duration-[1600ms]
-              ${visible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"}
+              ${
+                visible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-12 opacity-0"
+              }
             `}
           >
             <h1
@@ -259,9 +273,7 @@ const Footer = () => {
               Let's Bring Your
               <br />
 
-              <span className="text-[#0166FF]">
-                Ideas
-              </span>{" "}
+              <span className="text-[#0166FF]">Ideas</span>{" "}
 
               <span className="relative inline-block">
                 to Life
@@ -291,18 +303,21 @@ const Footer = () => {
               text-base
               leading-8
               text-white/50
-              sm:text-lg
               transition-all
               delay-300
               duration-[1500ms]
-              ${visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}
+              sm:text-lg
+              ${
+                visible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0"
+              }
             `}
           >
             From product design and engineering to development and
             production support, let's create something exceptional
             together.
           </p>
-
         </div>
 
         {/* =================================================
@@ -310,25 +325,24 @@ const Footer = () => {
         ================================================= */}
 
         <div className="px-5 sm:px-8 lg:px-12">
-
           <div
             className="
               relative
               overflow-hidden
               border
               border-white/10
-              bg-[#07101D]/70
+              bg-[#07101D]/65
               backdrop-blur-xl
             "
           >
-
-            {/* Top animated line */}
+            {/* Animated top line */}
 
             <div
               className="
                 absolute
                 left-0
                 top-0
+                z-10
                 h-px
                 w-full
                 bg-gradient-to-r
@@ -338,13 +352,7 @@ const Footer = () => {
               "
             />
 
-            <div
-              className="
-                grid
-                lg:grid-cols-[1fr_1fr_1fr]
-              "
-            >
-
+            <div className="grid lg:grid-cols-[1fr_1fr_1fr]">
               {/* =================================================
                   COMPANY
               ================================================= */}
@@ -360,9 +368,7 @@ const Footer = () => {
                   lg:p-12
                 "
               >
-
                 <div className="flex items-center gap-3">
-
                   <span
                     className="
                       h-2
@@ -377,7 +383,6 @@ const Footer = () => {
                   <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-white/35">
                     DesignCurve Technologies
                   </span>
-
                 </div>
 
                 <h3
@@ -392,6 +397,7 @@ const Footer = () => {
                 >
                   Engineering
                   <br />
+
                   <span className="text-[#0166FF]">
                     Beyond Ideas.
                   </span>
@@ -402,7 +408,6 @@ const Footer = () => {
                   innovative design, advanced engineering and
                   production-focused solutions.
                 </p>
-
               </div>
 
               {/* =================================================
@@ -420,13 +425,10 @@ const Footer = () => {
                   lg:p-12
                 "
               >
-
                 {/* EMAIL */}
 
                 <div className="group">
-
                   <div className="flex items-center gap-3">
-
                     <div
                       className="
                         flex
@@ -438,6 +440,7 @@ const Footer = () => {
                         text-[#0166FF]
                         transition-all
                         duration-500
+                        group-hover:scale-110
                         group-hover:bg-[#0166FF]
                         group-hover:text-white
                       "
@@ -446,7 +449,6 @@ const Footer = () => {
                     </div>
 
                     <div>
-
                       <p className="text-[8px] font-bold uppercase tracking-[0.25em] text-white/30">
                         Email
                       </p>
@@ -465,19 +467,14 @@ const Footer = () => {
                       >
                         sales@designcurvetech.com
                       </a>
-
                     </div>
-
                   </div>
-
                 </div>
 
                 {/* PHONE */}
 
                 <div className="group mt-9">
-
                   <div className="flex items-center gap-3">
-
                     <div
                       className="
                         flex
@@ -489,6 +486,7 @@ const Footer = () => {
                         text-[#F05C36]
                         transition-all
                         duration-500
+                        group-hover:scale-110
                         group-hover:bg-[#F05C36]
                         group-hover:text-white
                       "
@@ -497,7 +495,6 @@ const Footer = () => {
                     </div>
 
                     <div>
-
                       <p className="text-[8px] font-bold uppercase tracking-[0.25em] text-white/30">
                         Phone
                       </p>
@@ -516,24 +513,19 @@ const Footer = () => {
                       >
                         +91 8857857300
                       </a>
-
                     </div>
-
                   </div>
-
                 </div>
 
                 {/* HOURS */}
 
                 <div className="mt-9 flex items-center gap-3">
-
                   <Clock3
                     size={17}
                     className="text-[#0166FF]"
                   />
 
                   <div>
-
                     <p className="text-[8px] font-bold uppercase tracking-[0.25em] text-white/30">
                       Working Hours
                     </p>
@@ -541,11 +533,8 @@ const Footer = () => {
                     <p className="mt-1 text-sm font-semibold text-white/70">
                       Mon - Fri · 9:00 AM – 6:30 PM
                     </p>
-
                   </div>
-
                 </div>
-
               </div>
 
               {/* =================================================
@@ -553,11 +542,11 @@ const Footer = () => {
               ================================================= */}
 
               <div className="relative p-8 sm:p-10 lg:p-12">
-
                 {/* Location pulse */}
 
                 <div
                   className="
+                    pointer-events-none
                     absolute
                     right-10
                     top-10
@@ -571,7 +560,6 @@ const Footer = () => {
                 />
 
                 <div className="flex items-center gap-3">
-
                   <div
                     className="
                       flex
@@ -581,13 +569,16 @@ const Footer = () => {
                       justify-center
                       bg-[#F05C36]/10
                       text-[#F05C36]
+                      transition-all
+                      duration-500
+                      hover:bg-[#F05C36]
+                      hover:text-white
                     "
                   >
                     <MapPin size={18} />
                   </div>
 
                   <div>
-
                     <p className="text-[8px] font-bold uppercase tracking-[0.25em] text-white/30">
                       Our Location
                     </p>
@@ -595,9 +586,7 @@ const Footer = () => {
                     <p className="mt-1 text-sm font-bold text-white">
                       Pune, Maharashtra
                     </p>
-
                   </div>
-
                 </div>
 
                 <p
@@ -638,7 +627,11 @@ const Footer = () => {
                 >
                   <Navigation
                     size={13}
-                    className="transition-transform duration-500 group-hover:-translate-y-1"
+                    className="
+                      transition-transform
+                      duration-500
+                      group-hover:-translate-y-1
+                    "
                   />
 
                   View Location
@@ -653,25 +646,16 @@ const Footer = () => {
                     "
                   />
                 </a>
-
               </div>
-
             </div>
           </div>
-
         </div>
-
-        {/* =================================================
-            FINAL CTA
-        ================================================= */}
-
 
         {/* =================================================
             BOTTOM BAR
         ================================================= */}
 
-        <div className="border-t border-white/10">
-
+        <div className="mt-20 border-t border-white/10">
           <div
             className="
               flex
@@ -679,17 +663,13 @@ const Footer = () => {
               gap-5
               px-5
               py-7
-
               sm:px-8
-
               md:flex-row
               md:items-center
               md:justify-between
-
               lg:px-12
             "
           >
-
             <p
               className="
                 text-[8px]
@@ -703,39 +683,68 @@ const Footer = () => {
             </p>
 
             <div className="flex items-center gap-6">
-
               <a
                 href="#home"
-                className="text-[8px] font-bold uppercase tracking-[0.2em] text-white/30 transition-colors hover:text-[#0166FF]"
+                className="
+                  text-[8px]
+                  font-bold
+                  uppercase
+                  tracking-[0.2em]
+                  text-white/30
+                  transition-colors
+                  hover:text-[#0166FF]
+                "
               >
                 Home
               </a>
 
               <a
                 href="#services"
-                className="text-[8px] font-bold uppercase tracking-[0.2em] text-white/30 transition-colors hover:text-[#0166FF]"
+                className="
+                  text-[8px]
+                  font-bold
+                  uppercase
+                  tracking-[0.2em]
+                  text-white/30
+                  transition-colors
+                  hover:text-[#0166FF]
+                "
               >
                 Services
               </a>
 
               <a
                 href="#about"
-                className="text-[8px] font-bold uppercase tracking-[0.2em] text-white/30 transition-colors hover:text-[#0166FF]"
+                className="
+                  text-[8px]
+                  font-bold
+                  uppercase
+                  tracking-[0.2em]
+                  text-white/30
+                  transition-colors
+                  hover:text-[#0166FF]
+                "
               >
                 About
               </a>
 
               <a
                 href="#contact"
-                className="text-[8px] font-bold uppercase tracking-[0.2em] text-white/30 transition-colors hover:text-[#F05C36]"
+                className="
+                  text-[8px]
+                  font-bold
+                  uppercase
+                  tracking-[0.2em]
+                  text-white/30
+                  transition-colors
+                  hover:text-[#F05C36]
+                "
               >
                 Contact
               </a>
-
             </div>
 
             <div className="flex items-center gap-3">
-
               <span
                 className="
                   h-1.5
@@ -746,17 +755,9 @@ const Footer = () => {
                   animate-pulse
                 "
               />
-
-              <span className="text-[8px] font-bold uppercase tracking-[0.25em] text-white/20">
-                Engineering Excellence
-              </span>
-
             </div>
-
           </div>
-
         </div>
-
       </div>
     </footer>
   );

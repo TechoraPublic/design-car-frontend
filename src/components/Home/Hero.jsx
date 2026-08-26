@@ -9,7 +9,7 @@ const Hero = () => {
         isolate
         min-h-[calc(100vh-82px)]
         overflow-hidden
-        bg-[#FDFDFD]
+        bg-transparent
       "
     >
       {/* =====================================================
@@ -46,7 +46,6 @@ const Hero = () => {
 
       {/* =====================================================
           MAIN CONTAINER
-          NO EXTRA TOP / BOTTOM PADDING
       ====================================================== */}
 
       <div
@@ -100,7 +99,7 @@ const Hero = () => {
                   font-bold
                   uppercase
                   tracking-[0.32em]
-                  text-[#0B1220]/45
+                  text-white/70
                 "
               >
                 DesignCurve Technologies
@@ -128,7 +127,7 @@ const Hero = () => {
                 font-black
                 leading-[0.82]
                 tracking-[-0.075em]
-                text-[#0B1220]
+                text-white
               "
             >
               {/* THINK */}
@@ -213,7 +212,7 @@ const Hero = () => {
                   font-bold
                   uppercase
                   tracking-[0.28em]
-                  text-[#0B1220]/35
+                  text-white/60
                 "
               >
                 Engineering • Design • Innovation
@@ -230,7 +229,7 @@ const Hero = () => {
                 max-w-[590px]
                 text-base
                 leading-7
-                text-[#0B1220]/60
+                text-white/70
                 opacity-0
                 animate-[fadeUp_1.1s_cubic-bezier(.16,1,.3,1)_0.95s_forwards]
                 sm:text-lg
@@ -371,21 +370,7 @@ const Hero = () => {
           lg:block
         "
       >
-        <div
-          className="
-            select-none
-            text-[180px]
-            font-black
-            leading-none
-            tracking-[-0.12em]
-            text-[#0B1220]/[0.018]
-            opacity-0
-            animate-[fadeIn_2s_ease-out_1.1s_forwards]
-          "
-        >
-          DC
-        </div>
-
+       
         <div
           className="
             absolute

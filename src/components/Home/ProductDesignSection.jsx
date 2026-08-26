@@ -95,8 +95,9 @@ const ProductDesignSection = () => {
           className="
             grid
             items-center
-            gap-0
-            lg:grid-cols-[1.08fr_0.92fr]
+            gap-8
+            lg:grid-cols-[1fr_1fr]
+            lg:gap-0
           "
         >
           {/* =================================================
@@ -106,45 +107,36 @@ const ProductDesignSection = () => {
           <div
             className="
               relative
-              z-20
+              z-10
               w-full
-              lg:-mr-24
+              lg:pr-10
             "
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
           >
             <div
-              className={`
+              className="
                 group
                 relative
                 h-[380px]
                 w-full
+                max-w-[760px]
                 overflow-hidden
+                rounded-[4px]
+                bg-[#0B1220]
                 sm:h-[480px]
-                lg:h-[620px]
-                max-w-[850px]
-
+                lg:h-[600px]
                 transform-gpu
-                transition-transform
-                ease-[cubic-bezier(.16,1,.3,1)]
-
-                ${
-                  hovered
-                    ? "lg:translate-x-[7%] lg:scale-[1.035]"
-                    : "translate-x-0 scale-100"
-                }
-              `}
-              style={{
-                transitionDuration: "2200ms",
-              }}
+              "
             >
               {/* =================================================
                   IMAGE
               ================================================= */}
 
               <img
-                src="https://designcurvetech.com/wp-content/uploads/2025/02/r2.png"
-                alt="Automotive Product Design"
+                src="/handShake.png"
+                alt="DesignCurve Product Engineering"
+                draggable="false"
                 className="
                   absolute
                   inset-0
@@ -152,18 +144,20 @@ const ProductDesignSection = () => {
                   w-full
                   object-cover
                   object-center
-
-                  transition-transform
+                  transform-gpu
+                  transition-all
                   ease-[cubic-bezier(.16,1,.3,1)]
                 "
                 style={{
-                  transform: hovered ? "scale(1.04)" : "scale(1)",
-                  transitionDuration: "2400ms",
+                  transform: hovered
+                    ? "scale(1.055) translate3d(0, -4px, 0)"
+                    : "scale(1) translate3d(0, 0, 0)",
+                  transitionDuration: "1800ms",
                 }}
               />
 
               {/* =================================================
-                  CINEMATIC DARK EDGE
+                  DARK CINEMATIC EDGE
               ================================================= */}
 
               <div
@@ -172,14 +166,14 @@ const ProductDesignSection = () => {
                   absolute
                   inset-0
                   bg-gradient-to-r
-                  from-black/10
+                  from-black/20
                   via-transparent
-                  to-black/10
+                  to-black/25
                 "
               />
 
               {/* =================================================
-                  BOTTOM CINEMATIC GRADIENT
+                  BOTTOM GRADIENT
               ================================================= */}
 
               <div
@@ -188,70 +182,99 @@ const ProductDesignSection = () => {
                   absolute
                   inset-x-0
                   bottom-0
-                  h-[32%]
+                  h-[40%]
                   bg-gradient-to-t
-                  from-[#0B1220]/35
+                  from-[#0B1220]/55
+                  via-[#0B1220]/10
                   to-transparent
                 "
               />
 
               {/* =================================================
-                  BLUE LIGHT EDGE
+                  BLUE LIGHT
               ================================================= */}
 
               <div
                 className={`
                   pointer-events-none
                   absolute
-                  right-0
-                  top-0
-                  h-full
-                  w-[35%]
-
-                  bg-gradient-to-l
-                  from-[#0166FF]/[0.14]
-                  via-[#0166FF]/[0.035]
-                  to-transparent
-
-                  transition-opacity
-                  duration-[1800ms]
-
+                  right-[-10%]
+                  top-[-10%]
+                  h-[65%]
+                  w-[45%]
+                  rounded-full
+                  bg-[#0166FF]/20
+                  blur-[90px]
+                  transition-all
+                  ease-[cubic-bezier(.16,1,.3,1)]
                   ${
                     hovered
-                      ? "opacity-100"
-                      : "opacity-0"
+                      ? "scale-125 opacity-100"
+                      : "scale-75 opacity-0"
                   }
                 `}
+                style={{
+                  transitionDuration: "1800ms",
+                }}
               />
 
               {/* =================================================
-                  ORANGE LIGHT EDGE
+                  ORANGE LIGHT
               ================================================= */}
 
               <div
                 className={`
                   pointer-events-none
                   absolute
-                  bottom-0
-                  right-[5%]
-                  h-[35%]
-                  w-[28%]
-
-                  bg-gradient-to-t
-                  from-[#F05C36]/20
-                  to-transparent
-
-                  blur-[35px]
-
-                  transition-opacity
-                  duration-[2200ms]
-
+                  bottom-[-15%]
+                  left-[-10%]
+                  h-[45%]
+                  w-[40%]
+                  rounded-full
+                  bg-[#F05C36]/20
+                  blur-[80px]
+                  transition-all
+                  ease-[cubic-bezier(.16,1,.3,1)]
                   ${
                     hovered
-                      ? "opacity-100"
-                      : "opacity-0"
+                      ? "scale-125 opacity-100"
+                      : "scale-75 opacity-0"
                   }
                 `}
+                style={{
+                  transitionDuration: "2000ms",
+                }}
+              />
+
+              {/* =================================================
+                  LUXURY LIGHT SWEEP
+              ================================================= */}
+
+              <div
+                className={`
+                  pointer-events-none
+                  absolute
+                  -left-[55%]
+                  top-0
+                  h-full
+                  w-[28%]
+                  skew-x-[-18deg]
+                  bg-gradient-to-r
+                  from-transparent
+                  via-white/15
+                  to-transparent
+                  blur-md
+                  transition-all
+                  ease-[cubic-bezier(.16,1,.3,1)]
+                  ${
+                    hovered
+                      ? "left-[125%]"
+                      : "left-[-55%]"
+                  }
+                `}
+                style={{
+                  transitionDuration: "1800ms",
+                }}
               />
 
               {/* =================================================
@@ -263,18 +286,16 @@ const ProductDesignSection = () => {
                   absolute
                   bottom-[9%]
                   left-[8%]
-
                   transition-all
                   ease-[cubic-bezier(.16,1,.3,1)]
-
                   ${
                     hovered
-                      ? "translate-x-4 opacity-100"
-                      : "translate-x-0 opacity-85"
+                      ? "translate-x-3 opacity-100"
+                      : "translate-x-0 opacity-90"
                   }
                 `}
                 style={{
-                  transitionDuration: "1800ms",
+                  transitionDuration: "1200ms",
                 }}
               >
                 <div className="flex items-center gap-3">
@@ -288,18 +309,6 @@ const ProductDesignSection = () => {
                     "
                   />
 
-                  <span
-                    className="
-                      text-[9px]
-                      font-bold
-                      uppercase
-                      tracking-[0.3em]
-                      text-white
-                      drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]
-                    "
-                  >
-                    Product Engineering
-                  </span>
                 </div>
               </div>
 
@@ -327,39 +336,60 @@ const ProductDesignSection = () => {
                     01 / PRODUCT
                   </span>
 
-                  <span className="h-px w-10 bg-[#F05C36]" />
+                  <span
+                    className="
+                      h-px
+                      w-10
+                      bg-[#F05C36]
+                    "
+                  />
                 </div>
               </div>
 
               {/* =================================================
-                  HOVER EXPANSION LINE
+                  IMAGE FRAME
               ================================================= */}
 
               <div
                 className={`
                   pointer-events-none
                   absolute
-                  right-[-20px]
-                  top-1/2
-                  h-px
-                  w-[140px]
-
-                  bg-gradient-to-r
-                  from-[#0166FF]/60
-                  to-transparent
-
+                  inset-4
+                  border
+                  border-white/10
                   transition-all
-                  ease-[cubic-bezier(.16,1,.3,1)]
-
+                  duration-1000
                   ${
                     hovered
-                      ? "translate-x-[70px] opacity-100"
-                      : "translate-x-0 opacity-0"
+                      ? "border-white/20"
+                      : "border-white/10"
                   }
                 `}
-                style={{
-                  transitionDuration: "2200ms",
-                }}
+              />
+
+              {/* =================================================
+                  HOVER CORNER
+              ================================================= */}
+
+              <div
+                className={`
+                  pointer-events-none
+                  absolute
+                  bottom-6
+                  right-6
+                  h-10
+                  w-10
+                  border-b
+                  border-r
+                  border-[#F05C36]
+                  transition-all
+                  duration-1000
+                  ${
+                    hovered
+                      ? "h-14 w-14 opacity-100"
+                      : "opacity-60"
+                  }
+                `}
               />
             </div>
           </div>
@@ -371,10 +401,10 @@ const ProductDesignSection = () => {
           <div
             className="
               relative
-              z-[100]
-              mt-8
-              lg:mt-0
-              lg:pl-14
+              z-20
+              w-full
+              lg:pl-8
+              xl:pl-12
             "
           >
             {/* =================================================
@@ -385,7 +415,7 @@ const ProductDesignSection = () => {
               className={`
                 pointer-events-none
                 absolute
-                -left-20
+                -left-16
                 top-1/2
                 h-[360px]
                 w-[360px]
@@ -393,10 +423,8 @@ const ProductDesignSection = () => {
                 rounded-full
                 bg-[#0166FF]/[0.045]
                 blur-[120px]
-
                 transition-all
                 ease-[cubic-bezier(.16,1,.3,1)]
-
                 ${
                   hovered
                     ? "scale-125 opacity-100"
@@ -404,11 +432,11 @@ const ProductDesignSection = () => {
                 }
               `}
               style={{
-                transitionDuration: "2200ms",
+                transitionDuration: "1800ms",
               }}
             />
 
-            <div className="relative z-[110]">
+            <div className="relative z-30">
               {/* =================================================
                   SECTION NUMBER
               ================================================= */}
@@ -465,9 +493,9 @@ const ProductDesignSection = () => {
                   leading-[0.94]
                   tracking-[-0.06em]
                   text-[#0B1220]
-
                   sm:text-5xl
-                  lg:text-[4.15rem]
+                  lg:text-[4rem]
+                  xl:text-[4.15rem]
                 "
               >
                 We specialize in
@@ -485,7 +513,7 @@ const ProductDesignSection = () => {
                 <br />
 
                 <span className="relative inline-block">
-                  & analysis
+                  &amp; analysis
 
                   <span
                     className="
@@ -795,37 +823,33 @@ const ProductDesignSection = () => {
       </div>
 
       {/* =====================================================
-          IMAGE → TEXT LIGHT CONNECTION
+          IMAGE → TEXT CONNECTION
       ====================================================== */}
 
       <div
         className={`
           pointer-events-none
           absolute
-          left-[39%]
+          left-[38%]
           top-[53%]
           hidden
           h-px
-          w-[25%]
-
+          w-[18%]
           bg-gradient-to-r
           from-transparent
           via-[#0166FF]/25
           to-transparent
-
           transition-all
           ease-[cubic-bezier(.16,1,.3,1)]
-
           ${
             hovered
-              ? "translate-x-8 opacity-100"
+              ? "translate-x-5 opacity-100"
               : "translate-x-0 opacity-0"
           }
-
           lg:block
         `}
         style={{
-          transitionDuration: "2400ms",
+          transitionDuration: "1800ms",
         }}
       />
 
@@ -846,6 +870,26 @@ const ProductDesignSection = () => {
           to-transparent
         "
       />
+
+      {/* =====================================================
+          IMAGE DRAG PREVENTION
+      ====================================================== */}
+
+      <style>{`
+        img {
+          user-select: none;
+          -webkit-user-drag: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };

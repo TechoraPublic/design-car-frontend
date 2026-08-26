@@ -7,39 +7,34 @@ const services = [
     title: "Product Design",
     description:
       "We offer comprehensive CAD design and construction services for the Automotive, Aerospace, and Transportation industries, covering the entire development process from concept to manufacturing and product launch. Our skilled and experienced team supports OEMs, Tier 1, and Tier 2 suppliers throughout their product launch journey.",
-    image:
-      "https://designcurvetech.com/wp-content/uploads/2025/02/r2.png",
+    image: "/ProductDesign.png",
   },
   {
     number: "02",
     title: "Staffing",
     description:
       "We focus on our expertise, providing the best candidates for your CAD and CAE contract or direct hire roles, along with flexible payroll options. Many of our hires come through internal referrals, as our skilled engineers and analysts personally curate our talent pool. We recognize top talent and ensure they seamlessly integrate into your team. Once onboard, they bring their creativity, technical expertise, and enthusiasm to deliver exceptional results tailored to your project needs.",
-    image:
-      "https://designcurvetech.com/wp-content/uploads/2025/02/r2.png",
+    image: "/Staffing.png",
   },
   {
     number: "03",
     title: "Simulations",
     description:
       "We specialize in creating a wide range of finite element models across various industry domains with exceptional turnaround times. Leveraging our extensive experience in finite element analysis, we deliver models that closely align with calculation requirements, ensuring enhanced accuracy and reliability in results.",
-    image:
-      "https://designcurvetech.com/wp-content/uploads/2025/02/r1.png",
+    image: "/Simulations.png",
   },
   {
     number: "04",
     title: "Training",
     description:
       "We offer specialized training services in CAD, CAE, and automotive product knowledge designed to empower engineers and professionals with industry-relevant skills. Our training programs are tailored to cover essential design and analysis tools, advanced simulation techniques, and key automotive product development processes. With a focus on hands-on learning, participants gain practical experience in using industry-standard software and understanding the intricacies of automotive interiors, exteriors, and systems.",
-    image:
-      "https://designcurvetech.com/wp-content/uploads/2025/02/r1.png",
+    image: "/Training.png",
   },
 ];
 
 const Services = () => {
   const [activeCard, setActiveCard] = useState(null);
   const sectionRef = useRef(null);
-
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -71,7 +66,7 @@ const Services = () => {
       ====================================================== */}
 
       <div className="pointer-events-none absolute inset-0">
-        {/* Blue glow */}
+        {/* Blue Glow */}
         <div
           className="
             absolute
@@ -85,7 +80,7 @@ const Services = () => {
           "
         />
 
-        {/* Orange glow */}
+        {/* Orange Glow */}
         <div
           className="
             absolute
@@ -99,7 +94,7 @@ const Services = () => {
           "
         />
 
-        {/* Technical grid */}
+        {/* Technical Grid */}
         <div
           className="absolute inset-0 opacity-[0.018]"
           style={{
@@ -111,7 +106,7 @@ const Services = () => {
           }}
         />
 
-        {/* Large background number */}
+        {/* Large Background Number */}
         <div
           className="
             absolute
@@ -204,7 +199,7 @@ const Services = () => {
             >
               automotive interior design.
 
-              {/* Orange line */}
+              {/* Orange Line */}
 
               <span
                 className={`
@@ -271,6 +266,8 @@ const Services = () => {
                 <img
                   src={service.image}
                   alt={service.title}
+                  loading="lazy"
+                  draggable="false"
                   className="
                     absolute
                     inset-0
@@ -447,7 +444,7 @@ const Services = () => {
                   {/* BOTTOM */}
 
                   <div>
-                    {/* Small category */}
+                    {/* Small Category */}
 
                     <div
                       className="
@@ -499,7 +496,7 @@ const Services = () => {
                       {service.description}
                     </p>
 
-                    {/* Bottom line */}
+                    {/* Bottom Line */}
 
                     <div className="mt-7 flex items-center gap-3">
                       <span

@@ -7,7 +7,6 @@ import {
   Users,
   GraduationCap,
   Code2,
-  ChevronRight,
 } from "lucide-react";
 
 const Services = () => {
@@ -161,6 +160,7 @@ const Services = () => {
           rounded-full
           bg-[#0166FF]/[0.035]
           blur-[170px]
+          animate-[floatGlow_8s_ease-in-out_infinite]
         "
       />
 
@@ -175,10 +175,11 @@ const Services = () => {
           rounded-full
           bg-[#F05C36]/[0.035]
           blur-[170px]
+          animate-[floatGlowReverse_10s_ease-in-out_infinite]
         "
       />
 
-      {/* technical grid */}
+      {/* Technical Grid */}
 
       <div
         className="
@@ -186,6 +187,7 @@ const Services = () => {
           absolute
           inset-0
           opacity-[0.018]
+          animate-[gridMove_20s_linear_infinite]
         "
         style={{
           backgroundImage: `
@@ -196,7 +198,7 @@ const Services = () => {
         }}
       />
 
-      {/* giant background number */}
+      {/* Giant Background Number */}
 
       <div
         className="
@@ -210,6 +212,7 @@ const Services = () => {
           leading-none
           tracking-[-0.12em]
           text-[#0B1220]/[0.018]
+          animate-[numberFloat_12s_ease-in-out_infinite]
         "
       >
         06
@@ -220,7 +223,6 @@ const Services = () => {
       ====================================================== */}
 
       <div className="relative z-10 mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-12">
-
         {/* =====================================================
             HEADER
         ====================================================== */}
@@ -238,10 +240,10 @@ const Services = () => {
             }
           `}
         >
-          {/* eyebrow */}
+          {/* Eyebrow */}
 
           <div className="mb-5 flex items-center gap-4">
-            <span className="h-px w-12 bg-[#0166FF]" />
+            <span className="h-px w-12 bg-[#0166FF] animate-[lineGrow_1s_ease-out]" />
 
             <span
               className="
@@ -255,10 +257,10 @@ const Services = () => {
               What We Do
             </span>
 
-            <span className="h-px w-12 bg-[#F05C36]" />
+            <span className="h-px w-12 bg-[#F05C36] animate-[lineGrow_1s_ease-out_0.2s_both]" />
           </div>
 
-          {/* heading */}
+          {/* Heading */}
 
           <h1
             className="
@@ -268,7 +270,6 @@ const Services = () => {
               leading-[0.9]
               tracking-[-0.07em]
               text-[#0B1220]
-
               sm:text-6xl
               lg:text-[7rem]
             "
@@ -276,7 +277,7 @@ const Services = () => {
             Engineering
             <br />
 
-            <span className="relative inline-block text-[#0166FF]">
+            <span className="relative inline-block text-[#0166FF] animate-[textReveal_1.2s_cubic-bezier(.16,1,.3,1)_both]">
               expertise.
             </span>
 
@@ -293,12 +294,14 @@ const Services = () => {
                   h-[4px]
                   w-28
                   bg-[#F05C36]
+                  origin-left
+                  animate-[underlineGrow_1s_cubic-bezier(.16,1,.3,1)_700ms_both]
                 "
               />
             </span>
           </h1>
 
-          {/* description */}
+          {/* Description */}
 
           <p
             className="
@@ -307,8 +310,8 @@ const Services = () => {
               text-base
               leading-8
               text-[#0B1220]/55
-
               sm:text-lg
+              animate-[paragraphReveal_1s_cubic-bezier(.16,1,.3,1)_400ms_both]
             "
           >
             From automotive product development to engineering simulations,
@@ -323,7 +326,6 @@ const Services = () => {
         ====================================================== */}
 
         <div className="mt-14 lg:mt-20">
-
           <div
             className="
               grid
@@ -332,13 +334,11 @@ const Services = () => {
               lg:gap-16
             "
           >
-
             {/* =================================================
                 SERVICE LIST
             ================================================= */}
 
             <div>
-
               {services.map((service, index) => {
                 const Icon = service.icon;
                 const active = activeService === index;
@@ -363,6 +363,9 @@ const Services = () => {
                       transition-all
                       duration-700
 
+                      hover:pl-3
+                      hover:bg-[#0166FF]/[0.02]
+
                       ${
                         visible
                           ? "translate-x-0 opacity-100"
@@ -373,8 +376,7 @@ const Services = () => {
                       transitionDelay: `${index * 100 + 150}ms`,
                     }}
                   >
-
-                    {/* active line */}
+                    {/* Active Line */}
 
                     <span
                       className={`
@@ -383,19 +385,17 @@ const Services = () => {
                         top-0
                         h-px
                         bg-[#0166FF]
-
                         transition-all
                         duration-700
-
                         ${
                           active
-                            ? "w-full"
+                            ? "w-full shadow-[0_0_12px_rgba(1,102,255,.4)]"
                             : "w-0"
                         }
                       `}
                     />
 
-                    {/* number */}
+                    {/* Number */}
 
                     <span
                       className={`
@@ -404,13 +404,12 @@ const Services = () => {
                         text-[10px]
                         font-black
                         tracking-[0.2em]
-
-                        transition-colors
+                        transition-all
                         duration-500
 
                         ${
                           active
-                            ? "text-[#0166FF]"
+                            ? "translate-x-1 text-[#0166FF]"
                             : "text-[#0B1220]/25"
                         }
                       `}
@@ -418,7 +417,7 @@ const Services = () => {
                       {service.number}
                     </span>
 
-                    {/* icon */}
+                    {/* Icon */}
 
                     <span
                       className={`
@@ -428,24 +427,22 @@ const Services = () => {
                         shrink-0
                         items-center
                         justify-center
-
                         transition-all
                         duration-700
 
+                        group-hover:rotate-[-8deg]
+
                         ${
                           active
-                            ? "scale-110 text-[#0166FF]"
+                            ? "scale-110 text-[#0166FF] drop-shadow-[0_0_8px_rgba(1,102,255,.3)]"
                             : "text-[#0B1220]/35"
                         }
                       `}
                     >
-                      <Icon
-                        size={18}
-                        strokeWidth={1.6}
-                      />
+                      <Icon size={18} strokeWidth={1.6} />
                     </span>
 
-                    {/* title */}
+                    {/* Title */}
 
                     <span
                       className={`
@@ -453,15 +450,13 @@ const Services = () => {
                         text-lg
                         font-black
                         tracking-[-0.035em]
-
                         transition-all
                         duration-500
-
                         sm:text-xl
 
                         ${
                           active
-                            ? "translate-x-2 text-[#0166FF]"
+                            ? "translate-x-2 scale-[1.02] text-[#0166FF]"
                             : "text-[#0B1220]"
                         }
                       `}
@@ -469,7 +464,7 @@ const Services = () => {
                       {service.title}
                     </span>
 
-                    {/* arrow */}
+                    {/* Arrow */}
 
                     <ArrowUpRight
                       size={18}
@@ -484,13 +479,11 @@ const Services = () => {
                         }
                       `}
                     />
-
                   </button>
                 );
               })}
 
               <div className="h-px w-full bg-[#0B1220]/10" />
-
             </div>
 
             {/* =================================================
@@ -499,14 +492,18 @@ const Services = () => {
 
             <div
               className="
+                group
                 relative
                 min-h-[500px]
                 overflow-hidden
                 bg-[#0B1220]
+                shadow-[0_30px_80px_rgba(11,18,32,.08)]
+                transition-all
+                duration-700
+                hover:shadow-[0_40px_100px_rgba(11,18,32,.14)]
               "
             >
-
-              {/* image */}
+              {/* Image */}
 
               <img
                 key={current.image}
@@ -521,10 +518,12 @@ const Services = () => {
                   opacity-45
                   transition-all
                   duration-[1000ms]
+                  animate-[imageDrift_12s_ease-in-out_infinite]
+                  group-hover:scale-[1.08]
                 "
               />
 
-              {/* dark overlay */}
+              {/* Dark Overlay */}
 
               <div
                 className="
@@ -537,7 +536,7 @@ const Services = () => {
                 "
               />
 
-              {/* blue light */}
+              {/* Blue Light */}
 
               <div
                 className="
@@ -550,10 +549,11 @@ const Services = () => {
                   rounded-full
                   bg-[#0166FF]/20
                   blur-[100px]
+                  animate-[featureGlow_7s_ease-in-out_infinite]
                 "
               />
 
-              {/* orange light */}
+              {/* Orange Light */}
 
               <div
                 className="
@@ -566,17 +566,16 @@ const Services = () => {
                   rounded-full
                   bg-[#F05C36]/15
                   blur-[90px]
+                  animate-[orangeGlow_8s_ease-in-out_infinite]
                 "
               />
 
-              {/* content */}
+              {/* Content */}
 
               <div className="absolute inset-0 flex flex-col justify-between p-7 sm:p-10">
-
-                {/* top */}
+                {/* Top */}
 
                 <div className="flex items-start justify-between">
-
                   <div
                     className="
                       flex
@@ -589,12 +588,14 @@ const Services = () => {
                       bg-white/10
                       text-white
                       backdrop-blur-md
+                      transition-all
+                      duration-500
+                      hover:scale-110
+                      hover:rotate-3
+                      hover:border-white/30
                     "
                   >
-                    <CurrentIcon
-                      size={21}
-                      strokeWidth={1.5}
-                    />
+                    <CurrentIcon size={21} strokeWidth={1.5} />
                   </div>
 
                   <span
@@ -608,14 +609,12 @@ const Services = () => {
                   >
                     Service / {current.number}
                   </span>
-
                 </div>
 
-                {/* bottom */}
+                {/* Bottom */}
 
                 <div>
-
-                  {/* title */}
+                  {/* Title */}
 
                   <div
                     key={current.title}
@@ -623,7 +622,6 @@ const Services = () => {
                       animate-[serviceReveal_700ms_cubic-bezier(.16,1,.3,1)]
                     "
                   >
-
                     <h2
                       className="
                         max-w-[700px]
@@ -632,7 +630,6 @@ const Services = () => {
                         leading-[0.95]
                         tracking-[-0.055em]
                         text-white
-
                         sm:text-5xl
                         lg:text-6xl
                       "
@@ -647,28 +644,22 @@ const Services = () => {
                         text-sm
                         leading-7
                         text-white/60
-
                         sm:text-base
                       "
                     >
                       {current.description}
                     </p>
-
                   </div>
 
-                  {/* tags */}
+                  {/* Tags */}
 
-                  <div
-                    className="
-                      mt-7
-                      flex
-                      flex-wrap
-                      gap-2
-                    "
-                  >
-                    {current.tags.map((tag) => (
+                  <div className="mt-7 flex flex-wrap gap-2">
+                    {current.tags.map((tag, index) => (
                       <span
                         key={tag}
+                        style={{
+                          animationDelay: `${index * 80}ms`,
+                        }}
                         className="
                           border
                           border-white/15
@@ -681,18 +672,23 @@ const Services = () => {
                           tracking-[0.15em]
                           text-white/60
                           backdrop-blur-md
+                          transition-all
+                          duration-500
+                          hover:-translate-y-1
+                          hover:border-[#0166FF]/50
+                          hover:bg-[#0166FF]/10
+                          hover:text-white
+                          animate-[tagReveal_600ms_cubic-bezier(.16,1,.3,1)_both]
                         "
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-
                 </div>
-
               </div>
 
-              {/* corner */}
+              {/* Corner */}
 
               <div
                 className="
@@ -704,6 +700,11 @@ const Services = () => {
                   border-r
                   border-t
                   border-white/20
+                  transition-all
+                  duration-700
+                  group-hover:h-14
+                  group-hover:w-14
+                  group-hover:border-white/40
                 "
               />
 
@@ -717,11 +718,14 @@ const Services = () => {
                   border-b
                   border-l
                   border-white/20
+                  transition-all
+                  duration-700
+                  group-hover:h-14
+                  group-hover:w-14
+                  group-hover:border-white/40
                 "
               />
-
             </div>
-
           </div>
         </div>
 
@@ -735,7 +739,6 @@ const Services = () => {
             border-t
             border-[#0B1220]/10
             pt-12
-
             transition-all
             duration-[1200ms]
 
@@ -746,7 +749,6 @@ const Services = () => {
             }
           `}
         >
-
           <div
             className="
               grid
@@ -755,13 +757,10 @@ const Services = () => {
               lg:gap-20
             "
           >
-
-            {/* heading */}
+            {/* Heading */}
 
             <div>
-
               <div className="mb-5 flex items-center gap-3">
-
                 <span
                   className="
                     h-2
@@ -769,6 +768,7 @@ const Services = () => {
                     rounded-full
                     bg-[#F05C36]
                     shadow-[0_0_12px_rgba(240,92,54,.5)]
+                    animate-[pulseDot_2s_ease-in-out_infinite]
                   "
                 />
 
@@ -783,7 +783,6 @@ const Services = () => {
                 >
                   Our Approach
                 </span>
-
               </div>
 
               <h3
@@ -793,7 +792,6 @@ const Services = () => {
                   leading-[0.95]
                   tracking-[-0.055em]
                   text-[#0B1220]
-
                   sm:text-5xl
                   lg:text-6xl
                 "
@@ -801,21 +799,17 @@ const Services = () => {
                 One partner.
                 <br />
 
-                <span className="text-[#0166FF]">
-                  Complete
-                </span>
+                <span className="text-[#0166FF]">Complete</span>
 
                 <br />
 
                 capability.
               </h3>
-
             </div>
 
-            {/* description */}
+            {/* Description */}
 
             <div className="relative">
-
               <div
                 className="
                   absolute
@@ -828,7 +822,6 @@ const Services = () => {
                   from-[#0166FF]
                   via-[#0166FF]/20
                   to-transparent
-
                   lg:block
                 "
               />
@@ -839,7 +832,6 @@ const Services = () => {
                   text-base
                   leading-8
                   text-[#0B1220]/60
-
                   sm:text-lg
                 "
               >
@@ -850,16 +842,10 @@ const Services = () => {
                 results.
               </p>
 
-              {/* metrics */}
+              {/* Metrics */}
 
-              <div
-                className="
-                  mt-8
-                  grid
-                  gap-4
-                  sm:grid-cols-3
-                "
-              >
+              <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                {/* Card 01 */}
 
                 <div
                   className="
@@ -869,9 +855,10 @@ const Services = () => {
                     p-5
                     transition-all
                     duration-500
-                    hover:-translate-y-1
+                    hover:-translate-y-2
+                    hover:scale-[1.02]
                     hover:border-[#0166FF]/30
-                    hover:shadow-[0_20px_50px_rgba(11,18,32,.06)]
+                    hover:shadow-[0_20px_50px_rgba(11,18,32,.08)]
                   "
                 >
                   <span
@@ -894,6 +881,8 @@ const Services = () => {
                   </p>
                 </div>
 
+                {/* Card 02 */}
+
                 <div
                   className="
                     border
@@ -902,9 +891,10 @@ const Services = () => {
                     p-5
                     transition-all
                     duration-500
-                    hover:-translate-y-1
+                    hover:-translate-y-2
+                    hover:scale-[1.02]
                     hover:border-[#F05C36]/30
-                    hover:shadow-[0_20px_50px_rgba(11,18,32,.06)]
+                    hover:shadow-[0_20px_50px_rgba(11,18,32,.08)]
                   "
                 >
                   <span
@@ -927,6 +917,8 @@ const Services = () => {
                   </p>
                 </div>
 
+                {/* Card 03 */}
+
                 <div
                   className="
                     border
@@ -935,9 +927,10 @@ const Services = () => {
                     p-5
                     transition-all
                     duration-500
-                    hover:-translate-y-1
+                    hover:-translate-y-2
+                    hover:scale-[1.02]
                     hover:border-[#0166FF]/30
-                    hover:shadow-[0_20px_50px_rgba(11,18,32,.06)]
+                    hover:shadow-[0_20px_50px_rgba(11,18,32,.08)]
                   "
                 >
                   <span
@@ -959,11 +952,8 @@ const Services = () => {
                     Built around your goals.
                   </p>
                 </div>
-
               </div>
-
             </div>
-
           </div>
         </div>
 
@@ -973,16 +963,20 @@ const Services = () => {
 
         <div
           className="
+            group
             relative
             mt-14
             overflow-hidden
             bg-[#0B1220]
             px-7
             py-8
-
             sm:px-10
+            transition-all
+            duration-700
+            hover:shadow-[0_30px_80px_rgba(11,18,32,.15)]
           "
         >
+          {/* Moving Glow */}
 
           <div
             className="
@@ -996,8 +990,11 @@ const Services = () => {
               rounded-full
               bg-[#0166FF]/20
               blur-[80px]
+              animate-[ctaGlow_6s_ease-in-out_infinite]
             "
           />
+
+          {/* Gradient Line */}
 
           <div
             className="
@@ -1009,6 +1006,9 @@ const Services = () => {
               bg-gradient-to-b
               from-[#0166FF]
               to-[#F05C36]
+              transition-all
+              duration-700
+              group-hover:w-2
             "
           />
 
@@ -1021,14 +1021,11 @@ const Services = () => {
               items-start
               justify-between
               gap-6
-
               sm:flex-row
               sm:items-center
             "
           >
-
             <div>
-
               <div
                 className="
                   text-[9px]
@@ -1048,19 +1045,17 @@ const Services = () => {
                   font-black
                   tracking-[-0.03em]
                   text-white
-
                   sm:text-2xl
                 "
               >
                 Let's engineer your next product.
               </div>
-
             </div>
 
             <a
               href="#contact"
               className="
-                group
+                group/button
                 inline-flex
                 items-center
                 gap-3
@@ -1075,6 +1070,8 @@ const Services = () => {
                 transition-all
                 duration-500
                 hover:bg-[#F05C36]
+                hover:-translate-y-1
+                hover:shadow-[0_12px_30px_rgba(240,92,54,.25)]
               "
             >
               Start a Project
@@ -1084,22 +1081,23 @@ const Services = () => {
                 className="
                   transition-transform
                   duration-500
-                  group-hover:rotate-45
+                  group-hover/button:rotate-45
                 "
               />
             </a>
-
           </div>
-
         </div>
-
       </div>
 
       {/* =====================================================
-          ANIMATION
+          ANIMATIONS
       ====================================================== */}
 
       <style>{`
+        /* -----------------------------------------------
+           SERVICE CONTENT REVEAL
+        ------------------------------------------------ */
+
         @keyframes serviceReveal {
           0% {
             opacity: 0;
@@ -1113,8 +1111,238 @@ const Services = () => {
             filter: blur(0);
           }
         }
-      `}</style>
 
+        /* -----------------------------------------------
+           BACKGROUND FLOAT
+        ------------------------------------------------ */
+
+        @keyframes floatGlow {
+          0%,
+          100% {
+            transform: translate3d(0, 0, 0) scale(1);
+          }
+
+          50% {
+            transform: translate3d(35px, -25px, 0) scale(1.06);
+          }
+        }
+
+        @keyframes floatGlowReverse {
+          0%,
+          100% {
+            transform: translate3d(0, 0, 0) scale(1);
+          }
+
+          50% {
+            transform: translate3d(-30px, 25px, 0) scale(1.05);
+          }
+        }
+
+        /* -----------------------------------------------
+           GRID MOVEMENT
+        ------------------------------------------------ */
+
+        @keyframes gridMove {
+          0% {
+            transform: translate3d(0, 0, 0);
+          }
+
+          50% {
+            transform: translate3d(20px, 20px, 0);
+          }
+
+          100% {
+            transform: translate3d(0, 0, 0);
+          }
+        }
+
+        /* -----------------------------------------------
+           BIG NUMBER
+        ------------------------------------------------ */
+
+        @keyframes numberFloat {
+          0%,
+          100% {
+            transform: translateY(0) rotate(0deg);
+          }
+
+          50% {
+            transform: translateY(-18px) rotate(1deg);
+          }
+        }
+
+        /* -----------------------------------------------
+           IMAGE CINEMATIC MOVEMENT
+        ------------------------------------------------ */
+
+        @keyframes imageDrift {
+          0%,
+          100% {
+            transform: scale(1.02) translate3d(0, 0, 0);
+          }
+
+          50% {
+            transform: scale(1.08) translate3d(-12px, -8px, 0);
+          }
+        }
+
+        /* -----------------------------------------------
+           FEATURE GLOW
+        ------------------------------------------------ */
+
+        @keyframes featureGlow {
+          0%,
+          100% {
+            transform: translate(0, 0) scale(1);
+            opacity: 0.6;
+          }
+
+          50% {
+            transform: translate(-35px, 30px) scale(1.2);
+            opacity: 1;
+          }
+        }
+
+        @keyframes orangeGlow {
+          0%,
+          100% {
+            transform: translate(0, 0) scale(1);
+            opacity: 0.5;
+          }
+
+          50% {
+            transform: translate(30px, -20px) scale(1.15);
+            opacity: 0.9;
+          }
+        }
+
+        /* -----------------------------------------------
+           TAG REVEAL
+        ------------------------------------------------ */
+
+        @keyframes tagReveal {
+          0% {
+            opacity: 0;
+            transform: translateY(12px) scale(0.94);
+            filter: blur(5px);
+          }
+
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+          }
+        }
+
+        /* -----------------------------------------------
+           CTA GLOW
+        ------------------------------------------------ */
+
+        @keyframes ctaGlow {
+          0%,
+          100% {
+            transform: translateY(-50%) translateX(0) scale(1);
+            opacity: 0.7;
+          }
+
+          50% {
+            transform: translateY(-50%) translateX(-40px) scale(1.15);
+            opacity: 1;
+          }
+        }
+
+        /* -----------------------------------------------
+           HEADER ANIMATIONS
+        ------------------------------------------------ */
+
+        @keyframes textReveal {
+          0% {
+            opacity: 0;
+            transform: translateY(25px);
+            filter: blur(8px);
+          }
+
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+          }
+        }
+
+        @keyframes paragraphReveal {
+          0% {
+            opacity: 0;
+            transform: translateY(18px);
+            filter: blur(5px);
+          }
+
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+          }
+        }
+
+        @keyframes underlineGrow {
+          0% {
+            transform: scaleX(0);
+            opacity: 0;
+          }
+
+          100% {
+            transform: scaleX(1);
+            opacity: 1;
+          }
+        }
+
+        @keyframes lineGrow {
+          0% {
+            transform: scaleX(0);
+            transform-origin: left;
+            opacity: 0;
+          }
+
+          100% {
+            transform: scaleX(1);
+            transform-origin: left;
+            opacity: 1;
+          }
+        }
+
+        /* -----------------------------------------------
+           DOT PULSE
+        ------------------------------------------------ */
+
+        @keyframes pulseDot {
+          0%,
+          100% {
+            transform: scale(1);
+            opacity: 0.7;
+            box-shadow: 0 0 8px rgba(240, 92, 54, 0.35);
+          }
+
+          50% {
+            transform: scale(1.35);
+            opacity: 1;
+            box-shadow: 0 0 18px rgba(240, 92, 54, 0.65);
+          }
+        }
+
+        /* -----------------------------------------------
+           ACCESSIBILITY
+        ------------------------------------------------ */
+
+        @media (prefers-reduced-motion: reduce) {
+          *,
+          *::before,
+          *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };
