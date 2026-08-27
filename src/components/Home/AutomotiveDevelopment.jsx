@@ -1,19 +1,12 @@
 import React, { useState } from "react";
-import {
-  ArrowRight,
-  Check,
-  ChevronDown,
-  Layers3,
-  Box,
-  Factory,
-} from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 
 const phases = [
   {
     id: "01",
     title: "Concept Phase",
     shortTitle: "Concept",
-    icon: Layers3,
+    image: "/ConceptCar.png",
     color: "#0166FF",
     description:
       "Transforming initial ideas into technically viable automotive concepts through analysis, packaging, benchmarking and regulatory studies.",
@@ -34,7 +27,7 @@ const phases = [
     id: "02",
     title: "Design Phase",
     shortTitle: "Design",
-    icon: Box,
+    image: "/DesignCar.png",
     color: "#F05C36",
     description:
       "Developing detailed engineering solutions through 3D modelling, drawings, tolerance analysis, BOM, DFMEA and prototype support.",
@@ -55,7 +48,7 @@ const phases = [
     id: "03",
     title: "Build & Production",
     shortTitle: "Production",
-    icon: Factory,
+    image: "/BuildProduction.png",
     color: "#0166FF",
     description:
       "Supporting the transition from engineering design to physical build, trials, testing, process development and production.",
@@ -75,18 +68,19 @@ const AutomotiveDevelopment = () => {
   return (
     <section
       id="automotive-development"
-      className="relative overflow-hidden bg-[#FDFDFD] py-0"
+      className="relative overflow-hidden bg-[#FDFDFD] pt-20 pb-0 sm:pt-24 lg:pt-28"
     >
-      {/* =====================================================
-          BACKGROUND
-      ====================================================== */}
+      {/* ================= BACKGROUND ================= */}
 
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {/* Blue glow */}
-        <div className="absolute left-[-180px] top-[15%] h-[450px] w-[450px] rounded-full bg-[#0166FF]/[0.055] blur-[120px]" />
+        <div className="absolute -left-[180px] top-[10%] h-[450px] w-[450px] rounded-full bg-[#0166FF]/[0.055] blur-[120px]" />
 
         {/* Orange glow */}
-        <div className="absolute right-[-180px] bottom-[10%] h-[450px] w-[450px] rounded-full bg-[#F05C36]/[0.055] blur-[120px]" />
+        <div className="absolute -right-[180px] bottom-[8%] h-[450px] w-[450px] rounded-full bg-[#F05C36]/[0.055] blur-[120px]" />
+
+        {/* Center glow */}
+        <div className="absolute left-1/2 top-[45%] h-[350px] w-[350px] -translate-x-1/2 rounded-full bg-[#0166FF]/[0.025] blur-[120px]" />
 
         {/* Technical grid */}
         <div
@@ -99,16 +93,16 @@ const AutomotiveDevelopment = () => {
             backgroundSize: "60px 60px",
           }}
         />
+
+        {/* Side lines */}
+        <div className="absolute left-[8%] top-0 h-full w-px bg-[#0B1220]/[0.035]" />
+        <div className="absolute right-[8%] top-0 h-full w-px bg-[#0B1220]/[0.035]" />
       </div>
 
       <div className="relative mx-auto max-w-[1450px] px-5 sm:px-8 lg:px-12">
-
-        {/* =====================================================
-            HEADER
-        ====================================================== */}
+        {/* ================= HEADER ================= */}
 
         <div className="mx-auto max-w-4xl text-center">
-
           {/* Label */}
           <div
             className="
@@ -203,7 +197,7 @@ const AutomotiveDevelopment = () => {
           <p
             className="
               mx-auto
-              mt-7
+              mt-8
               max-w-2xl
               text-sm
               leading-7
@@ -218,17 +212,36 @@ const AutomotiveDevelopment = () => {
           </p>
         </div>
 
-        {/* =====================================================
-            PROCESS FLOW
-        ====================================================== */}
+        {/* ================= PROCESS ================= */}
 
         <div className="relative mt-20 lg:mt-28">
-
-          {/* Desktop connecting line */}
-          <div className="absolute left-[16.66%] right-[16.66%] top-[39px] hidden h-px bg-[#0B1220]/10 lg:block" />
+          {/* Connecting line */}
+          <div
+            className="
+              absolute
+              left-[16.66%]
+              right-[16.66%]
+              top-[39px]
+              hidden
+              h-px
+              bg-[#0B1220]/10
+              lg:block
+            "
+          />
 
           {/* Animated line */}
-          <div className="absolute left-[16.66%] right-[16.66%] top-[39px] hidden h-px overflow-hidden lg:block">
+          <div
+            className="
+              absolute
+              left-[16.66%]
+              right-[16.66%]
+              top-[39px]
+              hidden
+              h-px
+              overflow-hidden
+              lg:block
+            "
+          >
             <div
               className="
                 h-full
@@ -244,127 +257,187 @@ const AutomotiveDevelopment = () => {
             />
           </div>
 
-          {/* Phase nodes */}
-          <div className="grid gap-6 lg:grid-cols-3 lg:gap-10">
-
+          {/* Cards */}
+          <div className="grid gap-8 lg:grid-cols-3 lg:gap-8">
             {phases.map((phase, index) => {
-              const Icon = phase.icon;
               const isActive = activePhase === index;
 
               return (
                 <div
                   key={phase.id}
-                  className="relative animate-[cardReveal_1.8s_cubic-bezier(.16,1,.3,1)_both]"
+                  className="
+                    relative
+                    animate-[cardReveal_1.8s_cubic-bezier(.16,1,.3,1)_both]
+                  "
                   style={{
                     animationDelay: `${1.15 + index * 0.25}s`,
                   }}
                 >
+                  {/* ================= IMAGE NODE ================= */}
 
-                  {/* =================================================
-                      NODE
-                  ================================================= */}
-
-                  <div className="relative z-10 mb-8 flex justify-center">
-
+                  <div className="relative z-20 mb-8 flex justify-center">
                     <button
                       onClick={() => setActivePhase(index)}
-                      className="group relative"
+                      className="group relative outline-none"
                       aria-label={`View ${phase.title}`}
                     >
-
                       {/* Outer ring */}
                       <span
-                        className={`absolute -inset-3 rounded-full border transition-all duration-[1000ms] ease-[cubic-bezier(.16,1,.3,1)] ${
-                          isActive
-                            ? "border-[#0166FF]/30 scale-100 opacity-100"
-                            : "border-transparent scale-75 opacity-0"
-                        }`}
+                        className={`
+                          absolute
+                          -inset-4
+                          rounded-full
+                          border
+                          transition-all
+                          duration-1000
+                          ${
+                            isActive
+                              ? "scale-100 border-[#0166FF]/30 opacity-100"
+                              : "scale-75 border-transparent opacity-0"
+                          }
+                        `}
                       />
 
-                      {/* Second luxury ring */}
+                      {/* Rotating ring */}
                       <span
-                        className={`absolute -inset-5 rounded-full border border-[#0166FF]/10 transition-all duration-[1400ms] ease-[cubic-bezier(.16,1,.3,1)] ${
-                          isActive
-                            ? "scale-100 opacity-100"
-                            : "scale-50 opacity-0"
-                        }`}
+                        className={`
+                          absolute
+                          -inset-6
+                          rounded-full
+                          border
+                          border-dashed
+                          border-[#0166FF]/15
+                          ${
+                            isActive
+                              ? "animate-[spinSlow_12s_linear_infinite]"
+                              : ""
+                          }
+                        `}
                       />
 
-                      {/* Node */}
+                      {/* Orange outer ring */}
+                      <span
+                        className={`
+                          absolute
+                          -inset-8
+                          rounded-full
+                          border
+                          border-[#F05C36]/10
+                          transition-all
+                          duration-[1400ms]
+                          ${
+                            isActive
+                              ? "scale-100 opacity-100"
+                              : "scale-50 opacity-0"
+                          }
+                        `}
+                      />
+
+                      {/* Circular image */}
                       <span
                         className="
                           relative
-                          flex
-                          h-[78px]
-                          w-[78px]
-                          items-center
-                          justify-center
+                          block
+                          h-[86px]
+                          w-[86px]
+                          overflow-hidden
                           rounded-full
                           border-[5px]
                           border-[#FDFDFD]
-                          shadow-[0_12px_35px_rgba(11,18,32,0.12)]
+                          bg-[#0B1220]
+                          shadow-[0_15px_45px_rgba(11,18,32,0.18)]
                           transition-all
-                          duration-[1000ms]
+                          duration-1000
                           ease-[cubic-bezier(.16,1,.3,1)]
                           group-hover:-translate-y-2
-                          group-hover:scale-[1.06]
+                          group-hover:scale-110
                         "
                         style={{
-                          backgroundColor: phase.color,
                           boxShadow: isActive
-                            ? `0 18px 55px ${phase.color}40`
+                            ? `0 20px 60px ${phase.color}55`
                             : undefined,
                         }}
                       >
-                        <Icon
-                          size={27}
-                          strokeWidth={1.8}
+                        <img
+                          src={phase.image}
+                          alt={phase.title}
                           className="
-                            text-white
+                            h-full
+                            w-full
+                            object-cover
                             transition-transform
-                            duration-[1000ms]
+                            duration-[1800ms]
                             ease-[cubic-bezier(.16,1,.3,1)]
-                            group-hover:scale-110
+                            group-hover:scale-125
                           "
                         />
 
-                        {/* Number */}
+                        {/* Overlay */}
                         <span
                           className="
                             absolute
-                            -right-2
-                            -top-2
-                            flex
-                            h-7
-                            w-7
-                            items-center
-                            justify-center
-                            rounded-full
-                            bg-[#0B1220]
-                            text-[9px]
-                            font-bold
-                            text-white
-                            shadow-[0_5px_20px_rgba(11,18,32,0.2)]
+                            inset-0
+                            bg-black/20
                             transition-all
                             duration-700
-                            group-hover:scale-110
+                            group-hover:bg-black/5
                           "
-                        >
-                          {phase.id}
-                        </span>
+                        />
+
+                        {/* Shine */}
+                        <span
+                          className="
+                            absolute
+                            inset-y-0
+                            -left-full
+                            w-1/2
+                            skew-x-[-20deg]
+                            bg-gradient-to-r
+                            from-transparent
+                            via-white/45
+                            to-transparent
+                            transition-all
+                            duration-[1200ms]
+                            group-hover:left-[150%]
+                          "
+                        />
+                      </span>
+
+                      {/* Number */}
+                      <span
+                        className="
+                          absolute
+                          -right-2
+                          -top-2
+                          flex
+                          h-7
+                          w-7
+                          items-center
+                          justify-center
+                          rounded-full
+                          bg-[#0B1220]
+                          text-[9px]
+                          font-bold
+                          text-white
+                          shadow-[0_5px_20px_rgba(11,18,32,0.25)]
+                          transition-all
+                          duration-700
+                          group-hover:scale-125
+                        "
+                      >
+                        {phase.id}
                       </span>
                     </button>
                   </div>
 
-                  {/* =================================================
-                      PHASE CARD
-                  ================================================= */}
+                  {/* ================= CARD ================= */}
 
                   <div
                     className={`
                       group/card
+                      relative
                       overflow-hidden
-                      rounded-[28px]
+                      rounded-[30px]
                       border
                       bg-white
                       transition-all
@@ -375,22 +448,23 @@ const AutomotiveDevelopment = () => {
                           ? "border-[#0166FF]/20 shadow-[0_30px_90px_rgba(11,18,32,0.12)]"
                           : "border-[#0B1220]/[0.08] shadow-[0_10px_40px_rgba(11,18,32,0.045)]"
                       }
-                      hover:-translate-y-2
+                      hover:-translate-y-3
                       hover:scale-[1.012]
-                      hover:border-[#0166FF]/20
-                      hover:shadow-[0_35px_100px_rgba(11,18,32,0.13)]
+                      hover:border-[#0166FF]/25
+                      hover:shadow-[0_40px_110px_rgba(11,18,32,0.15)]
                     `}
                   >
-
-                    {/* Luxury card glow */}
+                    {/* Ambient glow */}
                     <div
                       className="
                         pointer-events-none
                         absolute
+                        -right-20
+                        -top-20
                         h-[250px]
                         w-[250px]
                         rounded-full
-                        bg-[#0166FF]/[0.035]
+                        bg-[#0166FF]/[0.045]
                         blur-[80px]
                         opacity-0
                         transition-all
@@ -399,108 +473,234 @@ const AutomotiveDevelopment = () => {
                       "
                     />
 
-                    {/* Card top */}
+                    {/* ================= CARD IMAGE ================= */}
+
                     <button
                       onClick={() => setActivePhase(index)}
-                      className="relative w-full text-left"
+                      className="relative block w-full text-left outline-none"
                     >
-                      <div className="p-7 sm:p-8">
+                      <div className="relative h-[230px] overflow-hidden sm:h-[255px]">
+                        {/* Image */}
+                        <img
+                          src={phase.image}
+                          alt={phase.title}
+                          className="
+                            h-full
+                            w-full
+                            object-cover
+                            transition-transform
+                            duration-[1800ms]
+                            ease-[cubic-bezier(.16,1,.3,1)]
+                            group-hover/card:scale-110
+                          "
+                        />
 
-                        <div className="mb-5 flex items-start justify-between">
+                        {/* Cinematic overlay */}
+                        <div
+                          className="
+                            absolute
+                            inset-0
+                            bg-gradient-to-t
+                            from-[#0B1220]/90
+                            via-[#0B1220]/25
+                            to-transparent
+                          "
+                        />
 
-                          <div>
+                        {/* Color overlay */}
+                        <div
+                          className="
+                            absolute
+                            inset-0
+                            opacity-0
+                            transition-opacity
+                            duration-1000
+                            group-hover/card:opacity-100
+                          "
+                          style={{
+                            background: `linear-gradient(135deg, ${phase.color}35, transparent 65%)`,
+                          }}
+                        />
 
-                            <p
+                        {/* Shine */}
+                        <div
+                          className="
+                            absolute
+                            inset-y-0
+                            -left-[100%]
+                            w-[50%]
+                            skew-x-[-20deg]
+                            bg-gradient-to-r
+                            from-transparent
+                            via-white/25
+                            to-transparent
+                            transition-all
+                            duration-[1500ms]
+                            group-hover/card:left-[150%]
+                          "
+                        />
+
+                        {/* Phase badge */}
+                        <div className="absolute left-6 top-6">
+                          <span
+                            className="
+                              inline-flex
+                              rounded-full
+                              border
+                              border-white/20
+                              bg-black/25
+                              px-3
+                              py-1.5
+                              text-[8px]
+                              font-bold
+                              uppercase
+                              tracking-[0.25em]
+                              text-white
+                              backdrop-blur-md
+                            "
+                          >
+                            Phase {phase.id}
+                          </span>
+                        </div>
+
+                        {/* Number */}
+                        <div className="absolute right-5 top-5">
+                          <span
+                            className="
+                              flex
+                              h-11
+                              w-11
+                              items-center
+                              justify-center
+                              rounded-full
+                              border
+                              border-white/20
+                              bg-black/25
+                              text-xs
+                              font-bold
+                              text-white
+                              backdrop-blur-md
+                              transition-all
+                              duration-700
+                              group-hover/card:scale-110
+                              group-hover/card:rotate-6
+                            "
+                          >
+                            {phase.id}
+                          </span>
+                        </div>
+
+                        {/* Image title */}
+                        <div className="absolute bottom-6 left-6 right-6">
+                          <div className="overflow-hidden">
+                            <span
                               className="
                                 mb-2
+                                block
+                                translate-y-3
                                 text-[9px]
                                 font-bold
                                 uppercase
-                                tracking-[0.25em]
+                                tracking-[0.3em]
+                                opacity-0
                                 transition-all
                                 duration-700
-                                group-hover/card:tracking-[0.32em]
+                                group-hover/card:translate-y-0
+                                group-hover/card:opacity-100
                               "
                               style={{
                                 color: phase.color,
                               }}
                             >
-                              Phase {phase.id}
-                            </p>
-
-                            <h3
-                              className="
-                                text-2xl
-                                font-black
-                                tracking-[-0.035em]
-                                text-[#0B1220]
-                                transition-all
-                                duration-[900ms]
-                                ease-[cubic-bezier(.16,1,.3,1)]
-                                group-hover/card:translate-x-1
-                                group-hover/card:tracking-[-0.025em]
-                                sm:text-3xl
-                              "
-                            >
-                              {phase.title}
-                            </h3>
+                              Automotive Engineering
+                            </span>
                           </div>
 
-                          <span
+                          <h3
                             className="
-                              flex
-                              h-10
-                              w-10
-                              shrink-0
-                              items-center
-                              justify-center
-                              rounded-full
+                              text-2xl
+                              font-black
+                              tracking-[-0.035em]
+                              text-white
                               transition-all
-                              duration-[800ms]
-                              lg:hidden
+                              duration-700
+                              group-hover/card:translate-x-1
+                              sm:text-3xl
                             "
-                            style={{
-                              backgroundColor: `${phase.color}12`,
-                              color: phase.color,
-                              transform: isActive
-                                ? "rotate(180deg)"
-                                : "rotate(0deg)",
-                            }}
                           >
-                            <ChevronDown size={18} />
-                          </span>
-
+                            {phase.title}
+                          </h3>
                         </div>
-
-                        <p
-                          className="
-                            text-sm
-                            leading-6
-                            text-[#0B1220]/55
-                            transition-all
-                            duration-[900ms]
-                            group-hover/card:text-[#0B1220]/70
-                          "
-                        >
-                          {phase.description}
-                        </p>
-
                       </div>
                     </button>
 
-                    {/* =================================================
-                        ITEMS
-                    ================================================= */}
+                    {/* ================= DESCRIPTION ================= */}
+
+                    <div className="relative p-7 sm:p-8">
+                      <p
+                        className="
+                          pr-8
+                          text-sm
+                          leading-6
+                          text-[#0B1220]/55
+                          transition-all
+                          duration-700
+                          group-hover/card:text-[#0B1220]/75
+                        "
+                      >
+                        {phase.description}
+                      </p>
+
+                      {/* Mobile arrow */}
+                      <button
+                        onClick={() => setActivePhase(index)}
+                        className="
+                          absolute
+                          right-7
+                          top-7
+                          flex
+                          h-10
+                          w-10
+                          items-center
+                          justify-center
+                          rounded-full
+                          lg:hidden
+                        "
+                        style={{
+                          backgroundColor: `${phase.color}12`,
+                          color: phase.color,
+                        }}
+                        aria-label={`Toggle ${phase.title}`}
+                      >
+                        <ChevronDown
+                          size={18}
+                          className="transition-transform duration-700"
+                          style={{
+                            transform: isActive
+                              ? "rotate(180deg)"
+                              : "rotate(0deg)",
+                          }}
+                        />
+                      </button>
+                    </div>
+
+                    {/* ================= ITEMS ================= */}
 
                     <div
-                      className={`border-t border-[#0B1220]/[0.07] transition-all duration-[900ms] ease-[cubic-bezier(.16,1,.3,1)] ${
-                        isActive
-                          ? "max-h-[800px] opacity-100"
-                          : "max-h-0 opacity-0 lg:max-h-[800px] lg:opacity-100"
-                      }`}
+                      className={`
+                        border-t
+                        border-[#0B1220]/[0.07]
+                        transition-all
+                        duration-[900ms]
+                        ease-[cubic-bezier(.16,1,.3,1)]
+                        ${
+                          isActive
+                            ? "max-h-[800px] opacity-100"
+                            : "max-h-0 overflow-hidden opacity-0 lg:max-h-[800px] lg:opacity-100"
+                        }
+                      `}
                     >
                       <div className="grid gap-x-4 gap-y-1 p-5 sm:grid-cols-2 sm:p-7">
-
                         {phase.items.map((item, itemIndex) => (
                           <div
                             key={item}
@@ -514,11 +714,10 @@ const AutomotiveDevelopment = () => {
                               py-3
                               transition-all
                               duration-500
-                              hover:bg-[#0B1220]/[0.025]
                               hover:translate-x-1
+                              hover:bg-[#0B1220]/[0.025]
                             "
                           >
-
                             {/* Check */}
                             <span
                               className="
@@ -541,10 +740,15 @@ const AutomotiveDevelopment = () => {
                               <Check
                                 size={13}
                                 strokeWidth={3}
-                                className="transition-transform duration-500 group-hover/item:scale-110"
+                                className="
+                                  transition-transform
+                                  duration-500
+                                  group-hover/item:scale-110
+                                "
                               />
                             </span>
 
+                            {/* Text */}
                             <span
                               className="
                                 text-xs
@@ -559,6 +763,7 @@ const AutomotiveDevelopment = () => {
                               {item}
                             </span>
 
+                            {/* Number */}
                             <span
                               className="
                                 ml-auto
@@ -572,51 +777,51 @@ const AutomotiveDevelopment = () => {
                             >
                               {String(itemIndex + 1).padStart(2, "0")}
                             </span>
-
                           </div>
                         ))}
-
                       </div>
                     </div>
 
-                    {/* Bottom accent */}
-                    <div
-                      className="
-                        h-[3px]
-                        w-full
-                        transition-all
-                        duration-[1200ms]
-                        ease-[cubic-bezier(.16,1,.3,1)]
-                      "
-                      style={{
-                        background: `linear-gradient(90deg, ${phase.color}, transparent)`,
-                        opacity: isActive ? 1 : 0.35,
-                      }}
-                    />
+                    {/* ================= BOTTOM ACCENT ================= */}
 
+                    <div className="relative h-[3px] w-full overflow-hidden">
+                      <div
+                        className="
+                          absolute
+                          inset-0
+                          transition-all
+                          duration-[1200ms]
+                        "
+                        style={{
+                          background: `linear-gradient(90deg, ${phase.color}, transparent)`,
+                          opacity: isActive ? 1 : 0.35,
+                        }}
+                      />
+
+                      <div
+                        className="
+                          absolute
+                          inset-y-0
+                          -left-full
+                          w-1/2
+                          bg-white/70
+                          transition-all
+                          duration-[1200ms]
+                          group-hover/card:left-[150%]
+                        "
+                      />
+                    </div>
                   </div>
-
                 </div>
               );
             })}
-
           </div>
         </div>
-
-
-        
       </div>
 
-      {/* =====================================================
-          ANIMATIONS
-      ====================================================== */}
+      {/* ================= ANIMATIONS ================= */}
 
       <style>{`
-
-        /* -----------------------------------------
-           SLOW LUXURY HEADING REVEAL
-        ----------------------------------------- */
-
         @keyframes headingLuxury {
           0% {
             opacity: 0;
@@ -643,10 +848,6 @@ const AutomotiveDevelopment = () => {
           }
         }
 
-        /* -----------------------------------------
-           BLUE TEXT REVEAL
-        ----------------------------------------- */
-
         @keyframes blueTextLuxury {
           0% {
             opacity: 0;
@@ -665,10 +866,6 @@ const AutomotiveDevelopment = () => {
             filter: blur(0);
           }
         }
-
-        /* -----------------------------------------
-           DESCRIPTION
-        ----------------------------------------- */
 
         @keyframes descriptionLuxury {
           0% {
@@ -689,10 +886,6 @@ const AutomotiveDevelopment = () => {
           }
         }
 
-        /* -----------------------------------------
-           LABEL
-        ----------------------------------------- */
-
         @keyframes luxuryFade {
           0% {
             opacity: 0;
@@ -706,10 +899,6 @@ const AutomotiveDevelopment = () => {
             filter: blur(0);
           }
         }
-
-        /* -----------------------------------------
-           LINE REVEAL
-        ----------------------------------------- */
 
         @keyframes lineLuxury {
           0% {
@@ -727,10 +916,6 @@ const AutomotiveDevelopment = () => {
           }
         }
 
-        /* -----------------------------------------
-           UNDERLINE
-        ----------------------------------------- */
-
         @keyframes underlineLuxury {
           0% {
             transform: scaleX(0);
@@ -746,10 +931,6 @@ const AutomotiveDevelopment = () => {
             opacity: 0.7;
           }
         }
-
-        /* -----------------------------------------
-           CARDS
-        ----------------------------------------- */
 
         @keyframes cardReveal {
           0% {
@@ -770,10 +951,6 @@ const AutomotiveDevelopment = () => {
           }
         }
 
-        /* -----------------------------------------
-           PROCESS LINE
-        ----------------------------------------- */
-
         @keyframes automotiveLine {
           0% {
             transform: translateX(-150%);
@@ -784,26 +961,15 @@ const AutomotiveDevelopment = () => {
           }
         }
 
-        /* -----------------------------------------
-           SMALL LUXURY PULSE
-        ----------------------------------------- */
-
-        @keyframes luxuryPulse {
-          0%,
-          100% {
-            transform: scale(1);
-            opacity: 0.7;
+        @keyframes spinSlow {
+          from {
+            transform: rotate(0deg);
           }
 
-          50% {
-            transform: scale(1.45);
-            opacity: 1;
+          to {
+            transform: rotate(360deg);
           }
         }
-
-        /* -----------------------------------------
-           REDUCED MOTION
-        ----------------------------------------- */
 
         @media (prefers-reduced-motion: reduce) {
           *,
@@ -815,7 +981,6 @@ const AutomotiveDevelopment = () => {
             scroll-behavior: auto !important;
           }
         }
-
       `}</style>
     </section>
   );

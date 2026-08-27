@@ -702,27 +702,8 @@ const WhyDesignCurve = () => {
                   gap-3
                 "
               >
-                <span
-                  className="
-                    h-2
-                    w-2
-                    rounded-full
-                    bg-[#0166FF]
-                    shadow-[0_0_14px_rgba(1,102,255,.7)]
-                  "
-                />
 
-                <span
-                  className="
-                    text-[8px]
-                    font-bold
-                    uppercase
-                    tracking-[0.25em]
-                    text-[#0B1220]/35
-                  "
-                >
-                  Trusted Collaboration
-                </span>
+             
               </div>
 
             </div>

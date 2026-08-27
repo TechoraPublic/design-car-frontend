@@ -173,20 +173,6 @@ const Hero = () => {
 
                 {/* Tiny blue accent */}
 
-                <span
-                  className="
-                    absolute
-                    -right-5
-                    bottom-[0.15em]
-                    h-2
-                    w-2
-                    rounded-full
-                    bg-[#0166FF]
-                    opacity-0
-                    shadow-[0_0_18px_rgba(1,102,255,0.5)]
-                    animate-[dotReveal_1s_ease-out_1.35s_forwards]
-                  "
-                />
               </span>
             </h1>
 
@@ -253,7 +239,7 @@ const Hero = () => {
               "
             >
               <a
-                href="#projects"
+                href="/contact"
                 className="
                   group
                   relative
@@ -314,7 +300,7 @@ const Hero = () => {
                 {/* Button text */}
 
                 <span className="relative z-10 whitespace-nowrap">
-                  Explore the Project
+                  Contact Us 
                 </span>
 
                 {/* Arrow */}

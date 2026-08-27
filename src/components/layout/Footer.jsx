@@ -7,16 +7,37 @@ import {
   Clock3,
   Navigation,
 } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
   const footerRef = useRef(null);
   const [visible, setVisible] = useState(false);
 
+  const location = useLocation();
+
+  // =====================================================
+  // SCROLL TO TOP WHEN ROUTE CHANGES
+  // =====================================================
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "auto",
+    });
+
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [location.pathname]);
+
+  // =====================================================
+  // FOOTER VISIBILITY ANIMATION
+  // =====================================================
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
+          observer.disconnect();
         }
       },
       {
@@ -54,11 +75,7 @@ const Footer = () => {
             transition-transform
             duration-[8000ms]
             ease-out
-            ${
-              visible
-                ? "scale-100"
-                : "scale-[1.08]"
-            }
+            ${visible ? "scale-100" : "scale-[1.08]"}
           `}
         />
 
@@ -104,21 +121,6 @@ const Footer = () => {
           "
         />
 
-        {/* Blue cinematic glow */}
-        <div
-          className="
-            absolute
-            -left-[250px]
-            top-[5%]
-            h-[650px]
-            w-[650px]
-            rounded-full
-            bg-[#0166FF]/[0.10]
-            blur-[170px]
-            animate-[pulse_7s_ease-in-out_infinite]
-          "
-        />
-
         {/* Orange cinematic glow */}
         <div
           className="
@@ -149,27 +151,6 @@ const Footer = () => {
           "
         />
       </div>
-
-      {/* =====================================================
-          TECHNICAL GRID
-      ====================================================== */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          z-[1]
-          opacity-[0.035]
-        "
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(253,253,253,.6) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(253,253,253,.6) 1px, transparent 1px)
-          `,
-          backgroundSize: "100px 100px",
-        }}
-      />
 
       {/* =====================================================
           FLOATING ORBIT
@@ -212,11 +193,13 @@ const Footer = () => {
       ====================================================== */}
 
       <div className="relative z-20 mx-auto max-w-[1550px]">
+
         {/* =================================================
             HERO CONTACT
         ================================================= */}
 
         <div className="px-5 pb-20 pt-24 sm:px-8 lg:px-12 lg:pb-28 lg:pt-36">
+
           {/* Label */}
 
           <div
@@ -335,6 +318,7 @@ const Footer = () => {
               backdrop-blur-xl
             "
           >
+
             {/* Animated top line */}
 
             <div
@@ -353,6 +337,7 @@ const Footer = () => {
             />
 
             <div className="grid lg:grid-cols-[1fr_1fr_1fr]">
+
               {/* =================================================
                   COMPANY
               ================================================= */}
@@ -425,6 +410,7 @@ const Footer = () => {
                   lg:p-12
                 "
               >
+
                 {/* EMAIL */}
 
                 <div className="group">
@@ -542,6 +528,7 @@ const Footer = () => {
               ================================================= */}
 
               <div className="relative p-8 sm:p-10 lg:p-12">
+
                 {/* Location pulse */}
 
                 <div
@@ -683,78 +670,87 @@ const Footer = () => {
             </p>
 
             <div className="flex items-center gap-6">
-              <a
-                href="#home"
+
+              {/* HOME */}
+
+              <Link
+                to="/"
+                onClick={() => window.scrollTo(0, 0)}
                 className="
                   text-[8px]
                   font-bold
                   uppercase
                   tracking-[0.2em]
                   text-white/30
-                  transition-colors
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
                   hover:text-[#0166FF]
                 "
               >
                 Home
-              </a>
+              </Link>
 
-              <a
-                href="#services"
+              {/* SERVICES */}
+
+              <Link
+                to="/services"
+                onClick={() => window.scrollTo(0, 0)}
                 className="
                   text-[8px]
                   font-bold
                   uppercase
                   tracking-[0.2em]
                   text-white/30
-                  transition-colors
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
                   hover:text-[#0166FF]
                 "
               >
                 Services
-              </a>
+              </Link>
 
-              <a
-                href="#about"
+              {/* ABOUT */}
+
+              <Link
+                to="/about"
+                onClick={() => window.scrollTo(0, 0)}
                 className="
                   text-[8px]
                   font-bold
                   uppercase
                   tracking-[0.2em]
                   text-white/30
-                  transition-colors
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
                   hover:text-[#0166FF]
                 "
               >
                 About
-              </a>
+              </Link>
 
-              <a
-                href="#contact"
+              {/* CONTACT */}
+
+              <Link
+                to="/contact"
+                onClick={() => window.scrollTo(0, 0)}
                 className="
                   text-[8px]
                   font-bold
                   uppercase
                   tracking-[0.2em]
                   text-white/30
-                  transition-colors
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
                   hover:text-[#F05C36]
                 "
               >
                 Contact
-              </a>
-            </div>
+              </Link>
 
-            <div className="flex items-center gap-3">
-              <span
-                className="
-                  h-1.5
-                  w-1.5
-                  rounded-full
-                  bg-[#0166FF]
-                  shadow-[0_0_12px_#0166FF]
-                  animate-pulse
-                "
-              />
             </div>
           </div>
         </div>

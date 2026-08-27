@@ -298,18 +298,7 @@ const ProductDesignSection = () => {
                   transitionDuration: "1200ms",
                 }}
               >
-                <div className="flex items-center gap-3">
-                  <span
-                    className="
-                      h-2
-                      w-2
-                      rounded-full
-                      bg-[#0166FF]
-                      shadow-[0_0_14px_rgba(1,102,255,0.9)]
-                    "
-                  />
-
-                </div>
+                
               </div>
 
               {/* =================================================
@@ -323,49 +312,9 @@ const ProductDesignSection = () => {
                   top-[8%]
                 "
               >
-                <div className="flex items-center gap-3">
-                  <span
-                    className="
-                      text-[8px]
-                      font-bold
-                      tracking-[0.25em]
-                      text-white/75
-                      drop-shadow-lg
-                    "
-                  >
-                    01 / PRODUCT
-                  </span>
 
-                  <span
-                    className="
-                      h-px
-                      w-10
-                      bg-[#F05C36]
-                    "
-                  />
-                </div>
               </div>
 
-              {/* =================================================
-                  IMAGE FRAME
-              ================================================= */}
-
-              <div
-                className={`
-                  pointer-events-none
-                  absolute
-                  inset-4
-                  border
-                  border-white/10
-                  transition-all
-                  duration-1000
-                  ${
-                    hovered
-                      ? "border-white/20"
-                      : "border-white/10"
-                  }
-                `}
-              />
 
               {/* =================================================
                   HOVER CORNER
@@ -773,50 +722,6 @@ const ProductDesignSection = () => {
                   CTA
               ================================================= */}
 
-              <div className="mt-8">
-                <a
-                  href="#services"
-                  className="
-                    group
-                    inline-flex
-                    items-center
-                    gap-3
-                    rounded-full
-                    bg-[#0B1220]
-                    px-6
-                    py-4
-                    text-xs
-                    font-bold
-                    uppercase
-                    tracking-[0.08em]
-                    text-white
-                    transition-all
-                    duration-700
-                    hover:-translate-y-1
-                    hover:bg-[#0166FF]
-                    hover:shadow-[0_18px_45px_rgba(1,102,255,0.22)]
-                  "
-                >
-                  Explore Product Design
-
-                  <span
-                    className="
-                      flex
-                      h-7
-                      w-7
-                      items-center
-                      justify-center
-                      rounded-full
-                      bg-white/10
-                      transition-transform
-                      duration-700
-                      group-hover:rotate-45
-                    "
-                  >
-                    <ArrowUpRight size={14} />
-                  </span>
-                </a>
-              </div>
             </div>
           </div>
         </div>

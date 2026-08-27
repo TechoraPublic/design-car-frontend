@@ -281,7 +281,7 @@ const Navbar = () => {
             >
 
               <a
-                href="#contact"
+                href="/contact"
                 className="
                   group
                   relative
@@ -355,38 +355,6 @@ const Navbar = () => {
 
                 <span className="relative z-10">
                   Contact Us
-                </span>
-
-                <span
-                  className="
-                    relative
-                    z-10
-                    flex
-                    h-6
-                    w-6
-                    items-center
-                    justify-center
-                    rounded-full
-
-                    bg-white/10
-
-                    transition-all
-                    duration-500
-
-                    group-hover:bg-white/20
-                    group-hover:rotate-[-8deg]
-                  "
-                >
-                  <ArrowUpRight
-                    size={16}
-                    className="
-                      transition-transform
-                      duration-500
-
-                      group-hover:translate-x-[2px]
-                      group-hover:-translate-y-[2px]
-                    "
-                  />
                 </span>
 
               </a>
@@ -724,30 +692,7 @@ const NavLink = ({
         `}
       />
 
-      {/* Small orange dot */}
 
-      <span
-        className="
-          absolute
-          -right-1
-          top-1/2
-
-          h-1.5
-          w-1.5
-
-          -translate-y-1/2
-          scale-0
-
-          rounded-full
-
-          bg-[#F05C36]
-
-          transition-transform
-          duration-300
-
-          group-hover:scale-100
-        "
-      />
 
     </a>
   );

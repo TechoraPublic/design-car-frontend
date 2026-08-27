@@ -388,74 +388,6 @@ const ClientTestimonials = () => {
               `}
             >
 
-              <button
-                onClick={scrollLeft}
-                aria-label="Previous testimonial"
-                className="
-                  group
-                  flex
-                  h-14
-                  w-14
-                  items-center
-                  justify-center
-
-                  border
-                  border-[#0B1220]/10
-                  bg-white
-
-                  text-[#0B1220]
-
-                  transition-all
-                  duration-500
-
-                  hover:border-[#0166FF]
-                  hover:bg-[#0166FF]
-                  hover:text-white
-                "
-              >
-                <ArrowLeft
-                  size={18}
-                  className="
-                    transition-transform
-                    duration-500
-                    group-hover:-translate-x-1
-                  "
-                />
-              </button>
-
-              <button
-                onClick={scrollRight}
-                aria-label="Next testimonial"
-                className="
-                  group
-                  flex
-                  h-14
-                  w-14
-                  items-center
-                  justify-center
-
-                  border
-                  border-[#0B1220]/10
-                  bg-[#0B1220]
-
-                  text-white
-
-                  transition-all
-                  duration-500
-
-                  hover:bg-[#0166FF]
-                  hover:shadow-[0_15px_35px_rgba(1,102,255,.2)]
-                "
-              >
-                <ArrowRight
-                  size={18}
-                  className="
-                    transition-transform
-                    duration-500
-                    group-hover:translate-x-1
-                  "
-                />
-              </button>
 
             </div>
 
@@ -696,28 +628,7 @@ const ClientTestimonials = () => {
 
                   </div>
 
-                  {/* ACCENT */}
-
-                  <div
-                    className="
-                      flex
-                      h-9
-                      w-9
-                      items-center
-                      justify-center
-                      rounded-full
-                      bg-[#F05C36]/10
-                      text-[#F05C36]
-
-                      transition-all
-                      duration-700
-
-                      group-hover:bg-[#F05C36]
-                      group-hover:text-white
-                    "
-                  >
-                    <ArrowUpRight size={14} />
-                  </div>
+               
 
                 </div>
 
@@ -864,7 +775,7 @@ const ClientTestimonials = () => {
         >
 
           <a
-            href="#contact"
+            href="/contact"
             className="
               group
               inline-flex

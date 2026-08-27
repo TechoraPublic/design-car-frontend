@@ -143,7 +143,10 @@ const Services = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative isolate overflow-hidden bg-[#FDFDFD] py-8 sm:py-10 lg:py-12"
+      className="relative isolate overflow-hidden bg-[#FDFDFD] bg-cover bg-center bg-no-repeat py-8 sm:py-10 lg:py-12"
+      style={{
+        backgroundImage: "url('/ServiceBG.png')",
+      }}
     >
       {/* =====================================================
           BACKGROUND
@@ -267,6 +270,7 @@ const Services = () => {
               max-w-[1000px]
               text-5xl
               font-black
+              text-white
               leading-[0.9]
               tracking-[-0.07em]
               text-[#0B1220]
@@ -309,7 +313,7 @@ const Services = () => {
               max-w-[700px]
               text-base
               leading-8
-              text-[#0B1220]/55
+              text-white
               sm:text-lg
               animate-[paragraphReveal_1s_cubic-bezier(.16,1,.3,1)_400ms_both]
             "
@@ -359,13 +363,11 @@ const Services = () => {
                       border-[#0B1220]/10
                       py-5
                       text-left
-
+                       text-white
                       transition-all
                       duration-700
-
                       hover:pl-3
                       hover:bg-[#0166FF]/[0.02]
-
                       ${
                         visible
                           ? "translate-x-0 opacity-100"
@@ -383,6 +385,7 @@ const Services = () => {
                         absolute
                         left-0
                         top-0
+                         text-white
                         h-px
                         bg-[#0166FF]
                         transition-all
@@ -402,11 +405,11 @@ const Services = () => {
                         w-8
                         shrink-0
                         text-[10px]
+                         text-white
                         font-black
                         tracking-[0.2em]
                         transition-all
                         duration-500
-
                         ${
                           active
                             ? "translate-x-1 text-[#0166FF]"
@@ -425,13 +428,12 @@ const Services = () => {
                         h-9
                         w-9
                         shrink-0
+                         text-white
                         items-center
                         justify-center
                         transition-all
                         duration-700
-
                         group-hover:rotate-[-8deg]
-
                         ${
                           active
                             ? "scale-110 text-[#0166FF] drop-shadow-[0_0_8px_rgba(1,102,255,.3)]"
@@ -449,11 +451,11 @@ const Services = () => {
                         flex-1
                         text-lg
                         font-black
+                        text-white
                         tracking-[-0.035em]
                         transition-all
                         duration-500
                         sm:text-xl
-
                         ${
                           active
                             ? "translate-x-2 scale-[1.02] text-[#0166FF]"
@@ -468,10 +470,10 @@ const Services = () => {
 
                     <ArrowUpRight
                       size={18}
+                       text-white
                       className={`
                         transition-all
                         duration-700
-
                         ${
                           active
                             ? "rotate-45 text-[#F05C36] opacity-100"
@@ -741,7 +743,6 @@ const Services = () => {
             pt-12
             transition-all
             duration-[1200ms]
-
             ${
               visible
                 ? "translate-y-0 opacity-100"
@@ -791,7 +792,7 @@ const Services = () => {
                   font-black
                   leading-[0.95]
                   tracking-[-0.055em]
-                  text-[#0B1220]
+                  text-white
                   sm:text-5xl
                   lg:text-6xl
                 "
@@ -1053,7 +1054,7 @@ const Services = () => {
             </div>
 
             <a
-              href="#contact"
+              href="/contact"
               className="
                 group/button
                 inline-flex
